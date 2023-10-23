@@ -1,1 +1,4 @@
+.env
 pet-adoption-dataset/
+node_modules/
+images/logos/
