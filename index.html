@@ -4,8 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Need a Puppy? Take a Puppy!</title>
+  <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-  
+  <header>
+    <div class="header-logo">
+      <img id="small-circle-logo" src="./images/small-circle-transparent.png">
+    </div>
+    <div class="header-center"></div>
+    <div class="header-info"></div>
+  </header>
+  <aside class="search-frame">
+    <h2>Search</h2>
+    <input type="text" id="search-input" placeholder="Search...">
+    <h3>Filter by Category:</h3>
+    <div class="search-criteria">
+      <label for="categoryA"><input type="checkbox" id="categoryA" name="category" value="A"> Fluffy</label>
+      <label for="categoryB"><input type="checkbox" id="categoryB" name="category" value="B"> Cute</label>
+      <label for="categoryC"><input type="checkbox" id="categoryC" name="category" value="C"> Snuggly</label>
+    </div>
+    <h3>Sort By:</h3>
+    <select id="sort">
+      <option value="relevance">Relevance</option>
+      <option value="date">Date</option>
+      <option value="popularity">Popularity</option>
+    </select>
+    <button type="submit">Search</button>
+  </aside>
+  <main></main>
+  <footer></footer>
 </body>
 </html>
