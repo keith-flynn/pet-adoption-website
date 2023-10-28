@@ -1,18 +1,17 @@
-require("dotenv").config();
 
-("use-strict");
+"use-strict";
 
 document.getElementById("fetchButton").addEventListener("click", () => {
-  const accessToken = process.env.ACCESS_TOKEN;
-  const apiURL = "https://api.petfinder.com/v2/animals";
+  const accessToken = ACCESS_TOKEN;
+  const apiURL = "https://api.petfinder.com/v2/animals?type=dog";
 
   // Header with 0auth Bearer token
-  const headers = {
-    Authorization: `Bearer ${accessToken}`,
+  const headersInfo = {
+    Authorization: `Bearer ${ACCESS_TOKEN}`
   };
 
   // Perform fetch request
-  fetch(apiURL, { method: "GET", headers })
+  fetch(apiURL, { method: "GET", headers: headersInfo })
     .then((response) => {
       if (response.status === 200) {
         return response.json();
@@ -30,3 +29,4 @@ document.getElementById("fetchButton").addEventListener("click", () => {
       console.error("Request error:", error);
     });
 });
+
