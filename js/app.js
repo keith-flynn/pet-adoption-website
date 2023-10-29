@@ -1,7 +1,7 @@
 
 "use-strict";
 
-const apiURL = "https://api.petfinder.com/v2/animals?type=dog";
+const apiURL = "https://api.petfinder.com/v2/animals?type=dog&page=1&limit=100";
 const headersInfo = {
   Authorization: `Bearer ${ACCESS_TOKEN}`
 };
@@ -36,6 +36,18 @@ function displayResults(data) {
 
           resultsContainer.appendChild(itemDiv);
       });
+     // Save the JSON data to a file
+     const jsonData = JSON.stringify(data);
+     const blob = new Blob([jsonData], { type: 'application/json' });
+     const url = URL.createObjectURL(blob);
+     const a = document.createElement('a');
+     a.href = url;
+     a.download = 'petfinder_results.json'; // Specify the filename
+     a.textContent = 'Download JSON';
+     resultsContainer.appendChild(a);
+
+     // Trigger the download (you can remove this if you don't want to auto-download)
+     a.click();
   }
 }
 
