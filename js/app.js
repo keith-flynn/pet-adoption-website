@@ -21,11 +21,18 @@ function displayResults(data) {
       console.log("API Response:", data);
       
       const resultsContainer = document.getElementById("results-container");
-      const animals = data.animals;
 
-      animals.forEach((item) => {
+      data.animals.forEach((animal) => {
           const itemDiv = document.createElement("div");
-          itemDiv.textContent = item.name; // any property
+
+          const photo = document.createElement("img");
+          photo.src = animal.photos.small;
+          photo.alt = animal.name;
+          itemDiv.appendChild(photo);
+
+          const name = document.createElement("p");
+          name.textContent = animal.name;
+          itemDiv.appendChild(name);
 
           resultsContainer.appendChild(itemDiv);
       });
