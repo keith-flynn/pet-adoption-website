@@ -5,9 +5,17 @@ let app = express();
 // Express Router object
 let router = express.Router();
 
+let data = [6, 9]
+
 // GET return all
 router.get('/', function (req, res, next) {
-  res.send("Apple");
+  res.status(200).json({
+    "status": 200,
+    "statusText": "OK",
+    "message": "All pets are retrieved.",
+    "isKeithCool": true,
+    "data": data
+  });
 });
 
 // router prefixes all with /aip/v1
