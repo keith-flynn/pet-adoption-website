@@ -42,12 +42,12 @@ function displayResults(data) {
      const url = URL.createObjectURL(blob);
      const a = document.createElement('a');
      a.href = url;
-     a.download = 'petfinder_results.json'; // Specify the filename
+     a.download = 'petfinder_results.json'; // Specify filename
      a.textContent = 'Download JSON';
      resultsContainer.appendChild(a);
 
-     // Trigger the download (you can remove this if you don't want to auto-download)
-     a.click();
+     // Trigger the download (remove this if you don't want to auto-download)
+     //a.click();
   }
 }
 

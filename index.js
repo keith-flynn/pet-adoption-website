@@ -1,10 +1,10 @@
-// Express is cool
+// Controller - Express is cool
 let express = require('express');
 let app = express();
 let petRepo = require('./repos/petRepo');
 
 // Express Router object
-let router = express.Router();4
+let router = express.Router();
 
 //let data = [6, 9]
 
@@ -14,7 +14,7 @@ router.get('/', function (req, res, next) {
     res.status(200).json({
       "status": 200,
       "statusText": "OK",
-      "message": "All pets are retrieved.",
+      "message": "All pets retrieved.",
       "isKeithCool": true,
       "data": data
     });
