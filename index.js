@@ -1,20 +1,25 @@
 // Express is cool
 let express = require('express');
 let app = express();
+let petRepo = require('./repos/petRepo');
 
 // Express Router object
-let router = express.Router();
+let router = express.Router();4
 
-let data = [6, 9]
+//let data = [6, 9]
 
 // GET return all
 router.get('/', function (req, res, next) {
-  res.status(200).json({
-    "status": 200,
-    "statusText": "OK",
-    "message": "All pets are retrieved.",
-    "isKeithCool": true,
-    "data": data
+  petRepo.get(function (data) {
+    res.status(200).json({
+      "status": 200,
+      "statusText": "OK",
+      "message": "All pets are retrieved.",
+      "isKeithCool": true,
+      "data": data
+    });
+  }, function(err) {
+    next(err);
   });
 });
 
