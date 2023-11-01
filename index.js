@@ -23,6 +23,35 @@ router.get('/', function (req, res, next) {
   });
 });
 
+// Get by ID
+router.get('/:id', function (req, res, next) {
+  petRepo.getById(req.params.id, function (data) {
+    if (data) {
+      res.status(200).json({
+        "status": 200,
+        "statusText": "OK",
+        "message": "Single pet retrieved.",
+        "isKeithCool": true,
+        "data": data
+      });
+    }
+    else {
+      res.status(404).json({
+        "status": 404,
+        "statusText": "Not Found",
+        "message": "Pet ID: " + req.params.id + "could not be found.",
+        "isKeithCool": true,
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "Pet ID: " + req.params.id + "could not be found."
+        }
+      });
+    }
+  }, function(err) {
+    next(err);
+  });
+});
+
 // router prefixes all with /aip/v1
 app.use('/api/', router);
 
