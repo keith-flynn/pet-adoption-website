@@ -1,4 +1,4 @@
-//let logRepo = require('../repos/logRepo');
+let logRepo = require('../repos/logRepo');
 
 let errorHelpers = {
   logErrorsToConsole: function (err, req, res, next) {
