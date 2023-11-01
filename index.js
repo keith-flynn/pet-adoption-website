@@ -103,10 +103,39 @@ router.put('/:id', function (req, res, next) {
       res.status(404).json({
         "status": 404,
         "statusText": "Not Found",
-        "message": "The pet '" + req.params.id + "' could not be found.",
+        "message": "Pet '" + req.params.id + "' could not be found.",
         "error": {
           "code": "NOT_FOUND",
-          "message": "The pet '" + req.params.id + "' could not be found."
+          "message": "Pet '" + req.params.id + "' could not be found."
+        }
+      });
+    }
+  }, function(err) {
+    next(err);
+  });
+});
+
+router.delete('/:id', function (req, res, next) {
+  petRepo.getById(req.params.id, function (data) {
+    if (data) {
+      // Attempt to delete data
+      petRepo.delete(req.params.id, function (data) {
+        res.status(200).json({
+          "status": 200,
+          "statusText": "OK",
+          "message": "Pet '" + req.params.id + "' is deleted.",
+          "data": data
+        })
+      })
+    }
+    else {
+      res.status(404).json({
+        "status": 404,
+        "statusText": "Not Found",
+        "message": "Pet '" + req.params.id + "' could not be found.",
+        "error": {
+          "code": "NOT_FOUND",
+          "message": "Pet '" + req.params.id + "' could not be found."
         }
       });
     }
