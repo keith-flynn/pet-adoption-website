@@ -3,12 +3,16 @@ let express = require('express');
 let app = express();
 let petRepo = require('./repos/petRepo');
 let errorHelper = require('./helpers/errorHelpers');
+let cors = require('cors');
 
 // Express Router object
 let router = express.Router();
 
 // Middleware support for JSON parsing in request object
 app.use(express.json());
+
+// Configure CORS
+app.use(cors());
 
 // GET return all
 router.get('/', function (req, res, next) {
