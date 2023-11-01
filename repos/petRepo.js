@@ -49,6 +49,26 @@ let petRepo = {
       }
     });
   },
+  // Placeholder functions for booking appointments
+  insert: function (newData, resolve, reject) {
+    fs.readFile(FILE_NAME, function (err, data) {
+      if (err) {
+        reject(err);
+      }
+      else {
+        let pies = JSON.parse(data);
+        pies.push(newData);
+        fs.writeFile(FILE_NAME, JSON.stringify(pies), function (err) {
+          if (err) {
+            reject(err);
+          }
+          else {
+            resolve(newData);
+          }
+        });
+      }
+    });
+  }
 };
 
 module.exports = petRepo;

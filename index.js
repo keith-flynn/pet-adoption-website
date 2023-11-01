@@ -6,7 +6,8 @@ let petRepo = require('./repos/petRepo');
 // Express Router object
 let router = express.Router();
 
-//let data = [6, 9]
+// Middleware support for JSON parsing in request object
+app.use(express.json());
 
 // GET return all
 router.get('/', function (req, res, next) {
@@ -71,6 +72,19 @@ router.get('/:id', function (req, res, next) {
     next(err);
   });
 });
+
+router.post('/', function (req, res, next) {
+  petRepo.insert(req.body, function (data) {
+    res.status(201).json({
+      "status": 201,
+      "statusText": "Created",
+      "message": "New Pet Added.",
+      "data": data
+    });
+  }, function (err) {
+      next(err);
+  });
+})
 
 // router prefixes all with /aip/v1
 app.use('/api/', router);
