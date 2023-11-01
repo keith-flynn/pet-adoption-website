@@ -68,6 +68,28 @@ let petRepo = {
         });
       }
     });
+  },
+  update: function (newData, id, resolve, reject) {
+    fs.readFile(FILE_NAME, function (err, data) {
+      if (err) {
+        reject(err);
+      }
+      else {
+        let pets = JSON.parse(data);
+        let pet = pets.find(p => p.id == id);
+        if (pet) {
+          Object.assign(pet, newData);
+          fs.writeFile(FILE_NAME, JSON.stringify(pies), function (err) {
+            if (err) {
+              reject(err);
+            }
+            else {
+              resolve(newData);
+            }
+          });
+        }
+      }
+    });
   }
 };
 
