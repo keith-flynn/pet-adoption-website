@@ -23,6 +23,26 @@ router.get('/', function (req, res, next) {
   });
 });
 
+// Create GET/search?id=n&name=str to search for pies by 'id' and/or 'name'
+router.get('/search', function (req, res, next) {
+  let searchObject = {
+    "id": req.query.id,
+    "name": req.query.name
+  };
+
+  petRepo.search(searchObject, function (data) {
+    res.status(200).json({
+      "status": 200,
+      "statusText": "OK",
+      "message": "All searched pets retrieved.",
+      "data": data
+    });
+  }, function (err) {
+    next(err);
+  });
+});
+
+
 // Get by ID
 router.get('/:id', function (req, res, next) {
   petRepo.getById(req.params.id, function (data) {
@@ -39,11 +59,11 @@ router.get('/:id', function (req, res, next) {
       res.status(404).json({
         "status": 404,
         "statusText": "Not Found",
-        "message": "Pet ID: " + req.params.id + "could not be found.",
+        "message": "Pet ID: " + req.params.id + " could not be found.",
         "isKeithCool": true,
         "error": {
           "code": "NOT_FOUND",
-          "message": "Pet ID: " + req.params.id + "could not be found."
+          "message": "Pet ID: " + req.params.id + " could not be found."
         }
       });
     }

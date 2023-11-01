@@ -1,14 +1,13 @@
-let fs = require('fs');
+let fs = require("fs");
 
-const FILE_NAME = './assets/pets.json';
+const FILE_NAME = "./assets/pets.json";
 
 let petRepo = {
   get: function (resolve, reject) {
     fs.readFile(FILE_NAME, function (err, data) {
       if (err) {
         reject(err);
-      }
-      else {
+      } else {
         resolve(JSON.parse(data));
       }
     });
@@ -17,13 +16,39 @@ let petRepo = {
     fs.readFile(FILE_NAME, function (err, data) {
       if (err) {
         reject(err);
-      }
-      else { 
-        let pet = JSON.parse(data).find(p => p.id == id);
+      } else {
+        let pet = JSON.parse(data).find((p) => p.id == id);
         resolve(pet);
       }
     });
-  }
+  },
+  search: function (searchObject, resolve, reject) {
+    fs.readFile(FILE_NAME, function (err, data) {
+      if (err) {
+        reject(err);
+      } else {
+        let pets = JSON.parse(data);
+        // Perform search
+        if (searchObject) {
+          // Example search object:
+          // let searchObject = {
+          //   "id": 1,
+          //   "name": 'A'
+          // };
+          pets = pets.filter(
+            (p) =>
+              (searchObject.id ? p.id == searchObject.id : true) &&
+              (searchObject.name
+                ? p.name
+                    .toLowerCase()
+                    .indexOf(searchObject.name.toLowerCase()) >= 0
+                : true)
+          );
+        }
+        resolve(pets);
+      }
+    });
+  },
 };
 
 module.exports = petRepo;
