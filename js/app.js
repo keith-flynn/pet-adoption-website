@@ -1,7 +1,7 @@
 
 "use-strict";
 
-const apiURL = "http://localhost:5000/api/search?id=69484507";
+const apiURL = "http://localhost:5000/api/";
 
 
 async function fetchData() {
@@ -15,7 +15,7 @@ async function fetchData() {
 }
 
 function displayResults(data) {
-  if (data && data.animals) {
+  if (data) {
     console.log('API Response:', data);
 
     const resultsContainer = document.getElementById('results-container');
@@ -24,7 +24,7 @@ function displayResults(data) {
       const itemDiv = document.createElement('div');
 
       const photo = document.createElement('img');
-      photo.src = animal.photos.small;
+      photo.src = animal.primary_photo_cropped.small;
       photo.alt = animal.name;
       itemDiv.appendChild(photo);
 
