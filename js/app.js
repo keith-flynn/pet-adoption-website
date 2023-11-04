@@ -21,6 +21,7 @@ function displayResults(data) {
 
     data.data.forEach((animal) => {
       const itemDiv = document.createElement("div");
+      itemDiv.classList.add("return-animal-container")
 
       const photo = document.createElement("img");
       if (animal.photos && animal.photos.length > 0) {
@@ -36,8 +37,7 @@ function displayResults(data) {
         // No photos available, load a default image
         const defaultImageURL = "../images/small-circle-transparent.png";
         photo.src = defaultImageURL;
-      }
-      
+      }      
       photo.alt = animal.name;
       itemDiv.appendChild(photo);
 
