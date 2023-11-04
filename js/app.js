@@ -17,6 +17,11 @@ function displayResults(data) {
   if (data) {
     console.log("API Response:", data);
 
+    const h2Element = document.querySelector("main h2");
+    if (h2Element) {
+      h2Element.remove();
+    }
+
     const resultsContainer = document.getElementById("results-container");
 
     data.data.forEach((animal) => {

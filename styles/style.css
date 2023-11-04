@@ -68,6 +68,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 #results-container {
@@ -80,6 +81,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* padding: 15px; */
 }
 
 .return-animal-container,
