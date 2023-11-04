@@ -23,11 +23,12 @@ function displayResults(data) {
       const itemDiv = document.createElement("div");
       itemDiv.classList.add("return-animal-container")
 
+      // May be in an array, may be the only value
       const photo = document.createElement("img");
       if (animal.photos && animal.photos.length > 0) {
         const firstPhoto = animal.photos[0];
         if (firstPhoto.small) {
-          photo.src = firstPhoto.small;
+          photo.src = firstPhoto.medium;
         } else {
           // No 'small' property in the photo, load default image
           const defaultImageURL = "../images/small-circle-transparent.png";
