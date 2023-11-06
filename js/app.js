@@ -13,7 +13,7 @@ async function fetchData() {
   }
 }
 
-function displayResults(data) {
+function returnResults(data) {
   if (data) {
     console.log("API Response:", data);
 
@@ -22,44 +22,48 @@ function displayResults(data) {
       h2Element.remove();
     }
 
-    const resultsContainer = document.getElementById("results-container");
-
-    data.data.forEach((animal) => {
-      const itemDiv = document.createElement("div");
-      itemDiv.classList.add("return-animal-container")
-
-      // May be in an array, may be the only value
-      const photo = document.createElement("img");
-      if (animal.photos && animal.photos.length > 0) {
-        const firstPhoto = animal.photos[0];
-        if (firstPhoto.small) {
-          photo.src = firstPhoto.medium;
-        } else {
-          // No 'small' property in the photo, load default image
-          const defaultImageURL = "../images/small-circle-transparent.png";
-          photo.src = defaultImageURL;
-        }
-      } else {
-        // No photos available, load a default image
-        const defaultImageURL = "../images/small-circle-transparent.png";
-        photo.src = defaultImageURL;
-      }      
-      photo.alt = animal.name;
-      itemDiv.appendChild(photo);
-
-      const name = document.createElement("p");
-      name.textContent = animal.name;
-      itemDiv.appendChild(name);
-      resultsContainer.appendChild(itemDiv);
-    });
+    displayResults(data);
   }
 }
 
 document.getElementById("fetchButton").addEventListener("click", async () => {
   try {
     const data = await fetchData();
-    displayResults(data);
+    returnResults(data);
   } catch (error) {
     console.error(error);
   }
 });
+
+function displayResults(data) {
+  const resultsContainer = document.getElementById("results-container");
+
+  data.data.forEach((animal) => {
+    const itemDiv = document.createElement("div");
+    itemDiv.classList.add("return-animal-container");
+
+    // May be in an array, may be the only value
+    const photo = document.createElement("img");
+    if (animal.photos && animal.photos.length > 0) {
+      const firstPhoto = animal.photos[0];
+      if (firstPhoto.small) {
+        photo.src = firstPhoto.medium;
+      } else {
+        // No 'small' property in the photo, load default image
+        const defaultImageURL = "../images/small-circle-transparent.png";
+        photo.src = defaultImageURL;
+      }
+    } else {
+      // No photos available, load a default image
+      const defaultImageURL = "../images/small-circle-transparent.png";
+      photo.src = defaultImageURL;
+    }
+    photo.alt = animal.name;
+    itemDiv.appendChild(photo);
+
+    const name = document.createElement("p");
+    name.textContent = animal.name;
+    itemDiv.appendChild(name);
+    resultsContainer.appendChild(itemDiv);
+  });
+}
