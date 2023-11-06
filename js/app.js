@@ -69,9 +69,16 @@ function displayResults(data) {
 
     // Stats
     const animalInfoDiv = document.createElement("div");
+    // Name
     const name = document.createElement("p");
     name.textContent = animal.name;
-    returnAnimalDiv.appendChild(name);
+    animalInfoDiv.appendChild(name);
+    // Sex
+    const sex = document.createElement("p");
+    sex.textContent = animal.gender;
+    animalInfoDiv.appendChild(sex);
+
+    returnAnimalDiv.appendChild(animalInfoDiv);
     resultsContainer.appendChild(returnAnimalDiv);
   });
 }
