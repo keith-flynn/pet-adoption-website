@@ -3,6 +3,7 @@
 const apiURL = "http://localhost:5000/api/";
 //const apiURL = "http://localhost:5000/api/search?name=boris";
 
+// Where the magic happens
 async function fetchData() {
   const response = await fetch(apiURL, { method: "GET" });
   if (response.status === 200) {
@@ -10,19 +11,6 @@ async function fetchData() {
     return data;
   } else {
     throw new Error(`Request failed with status ${response.status}`);
-  }
-}
-
-function returnResults(data) {
-  if (data) {
-    console.log("API Response:", data);
-
-    const h2Element = document.querySelector("main h2");
-    if (h2Element) {
-      h2Element.remove();
-    }
-
-    displayResults(data);
   }
 }
 
@@ -35,14 +23,30 @@ document.getElementById("fetchButton").addEventListener("click", async () => {
   }
 });
 
+function returnResults(data) {
+  if (data) {
+    console.log("API Response:", data);
+
+    // Remove contents of main to display results after search
+    const h2Element = document.querySelector("main h2");
+    if (h2Element) {
+      h2Element.remove();
+    }
+
+    displayResults(data);
+  }
+}
+
 function displayResults(data) {
   const resultsContainer = document.getElementById("results-container");
 
   data.data.forEach((animal) => {
-    const itemDiv = document.createElement("div");
-    itemDiv.classList.add("return-animal-container");
+    const returnAnimalDiv = document.createElement("div");
+    returnAnimalDiv.classList.add("return-animal-container");
 
     // May be in an array, may be the only value
+    const photoDiv = document.createElement("div");
+    photoDiv.classList.add("return-photo-div")
     const photo = document.createElement("img");
     if (animal.photos && animal.photos.length > 0) {
       const firstPhoto = animal.photos[0];
@@ -58,12 +62,16 @@ function displayResults(data) {
       const defaultImageURL = "../images/small-circle-transparent.png";
       photo.src = defaultImageURL;
     }
+    // Photo
     photo.alt = animal.name;
-    itemDiv.appendChild(photo);
+    photoDiv.appendChild(photo);
+    returnAnimalDiv.appendChild(photoDiv)
 
+    // Stats
+    const animalInfoDiv = document.createElement("div");
     const name = document.createElement("p");
     name.textContent = animal.name;
-    itemDiv.appendChild(name);
-    resultsContainer.appendChild(itemDiv);
+    returnAnimalDiv.appendChild(name);
+    resultsContainer.appendChild(returnAnimalDiv);
   });
 }
