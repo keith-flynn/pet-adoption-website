@@ -46,7 +46,7 @@ function displayResults(data) {
 
     // May be in an array, may be the only value
     const photoDiv = document.createElement("div");
-    photoDiv.classList.add("return-photo-div")
+    photoDiv.classList.add("return-photo-div");
     const photo = document.createElement("img");
     if (animal.photos && animal.photos.length > 0) {
       const firstPhoto = animal.photos[0];
@@ -65,20 +65,30 @@ function displayResults(data) {
     // Photo
     photo.alt = animal.name;
     photoDiv.appendChild(photo);
-    returnAnimalDiv.appendChild(photoDiv)
+    returnAnimalDiv.appendChild(photoDiv);
 
     // Stats
     const animalInfoDiv = document.createElement("div");
     // Name
     const name = document.createElement("p");
-    name.textContent = animal.name;
+    name.textContent = capitalizeWords(animal.name);
     animalInfoDiv.appendChild(name);
+    // Age
+    const age = document.createElement("p");
+    age.textContent = `Age: ${animal.age}`;
+    animalInfoDiv.append(age);
     // Sex
     const sex = document.createElement("p");
-    sex.textContent = animal.gender;
+    sex.textContent = `Sex: ${animal.gender}`;
     animalInfoDiv.appendChild(sex);
 
     returnAnimalDiv.appendChild(animalInfoDiv);
     resultsContainer.appendChild(returnAnimalDiv);
+  });
+}
+
+function capitalizeWords(input) {
+  return input.replace(/\b\w+/g, function (word) {
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
   });
 }
