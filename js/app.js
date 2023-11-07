@@ -67,12 +67,15 @@ function displayResults(data) {
     photoDiv.appendChild(photo);
     returnAnimalDiv.appendChild(photoDiv);
 
-    // Stats
-    const animalInfoDiv = document.createElement("div");
     // Name
+    const nameDiv = document.createElement("div");
     const name = document.createElement("p");
     name.textContent = capitalizeWords(animal.name);
-    animalInfoDiv.appendChild(name);
+    nameDiv.appendChild(name);
+    returnAnimalDiv.appendChild(nameDiv);
+    
+    // Other stats
+    const animalInfoDiv = document.createElement("div");
     // Age
     const age = document.createElement("p");
     age.textContent = `Age: ${animal.age}`;
