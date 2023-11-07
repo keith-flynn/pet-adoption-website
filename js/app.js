@@ -81,6 +81,18 @@ function displayResults(data) {
     const sex = document.createElement("p");
     sex.textContent = `Sex: ${animal.gender}`;
     animalInfoDiv.appendChild(sex);
+    // Breeds
+    const breed = document.createElement("p");
+    if (animal.breeds.mixed) {
+      breed.textContent = createDescription(animal.breeds, "Breeds");
+    } else {
+      breed.textContent = createDescription(animal.breeds, "Breed");
+    }
+    animalInfoDiv.append(breed);
+    // Colors
+    const color = document.createElement("p");
+    color.textContent = createDescription(animal.colors, "Colors");
+    animalInfoDiv.append(color);
 
     returnAnimalDiv.appendChild(animalInfoDiv);
     resultsContainer.appendChild(returnAnimalDiv);
@@ -91,4 +103,24 @@ function capitalizeWords(input) {
   return input.replace(/\b\w+/g, function (word) {
     return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
   });
+}
+
+function createDescription(obj, label, separator = ", ") {
+  const descriptionList = [];
+
+  if (obj.primary) {
+    descriptionList.push(obj.primary);
+  }
+  if (obj.secondary) {
+    descriptionList.push(obj.secondary);
+  }
+  if (obj.tertiary) {
+    descriptionList.push(obj.tertiary);
+  }
+
+  if (descriptionList.length > 0) {
+    return `${label}: ${descriptionList.join(separator)}`;
+  } else {
+    return `${label}: Other`;
+  }
 }
