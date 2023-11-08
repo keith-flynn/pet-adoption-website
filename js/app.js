@@ -67,23 +67,28 @@ function displayResults(data) {
     photoDiv.appendChild(photo);
     returnAnimalDiv.appendChild(photoDiv);
 
+    // Name + stats:
+    const animalTextDiv = document.createElement("div");
+
     // Name
     const nameDiv = document.createElement("div");
-    const name = document.createElement("p");
-    name.textContent = capitalizeWords(animal.name);
-    nameDiv.appendChild(name);
-    returnAnimalDiv.appendChild(nameDiv);
+    const nameText = document.createElement("p");
+    nameText.classList.add("name-text")
+    nameText.textContent = capitalizeWords(animal.name);
+    nameDiv.appendChild(nameText);
+    animalTextDiv.appendChild(nameDiv);
     
     // Other stats
-    const animalInfoDiv = document.createElement("div");
+    const animalStatsDiv = document.createElement("div");
+    animalStatsDiv.classList.add("animal-stats")
     // Age
     const age = document.createElement("p");
     age.textContent = `Age: ${animal.age}`;
-    animalInfoDiv.append(age);
+    animalStatsDiv.append(age);
     // Sex
     const sex = document.createElement("p");
     sex.textContent = `Sex: ${animal.gender}`;
-    animalInfoDiv.appendChild(sex);
+    animalStatsDiv.appendChild(sex);
     // Breeds
     const breed = document.createElement("p");
     if (animal.breeds.mixed) {
@@ -91,13 +96,14 @@ function displayResults(data) {
     } else {
       breed.textContent = createDescription(animal.breeds, "Breed");
     }
-    animalInfoDiv.append(breed);
+    animalStatsDiv.append(breed);
     // Colors
     const color = document.createElement("p");
     color.textContent = createDescription(animal.colors, "Colors");
-    animalInfoDiv.append(color);
+    animalStatsDiv.append(color);
 
-    returnAnimalDiv.appendChild(animalInfoDiv);
+    animalTextDiv.appendChild(animalStatsDiv);
+    returnAnimalDiv.appendChild(animalTextDiv);
     resultsContainer.appendChild(returnAnimalDiv);
   });
 }
