@@ -69,6 +69,7 @@ function displayResults(data) {
 
     // Name + stats:
     const animalTextDiv = document.createElement("div");
+    animalTextDiv.classList.add("all-animal-text")
 
     // Name
     const nameDiv = document.createElement("div");
