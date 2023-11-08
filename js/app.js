@@ -28,9 +28,9 @@ function returnResults(data) {
     console.log("API Response:", data);
 
     // Remove contents of main to display results after search
-    const h2Element = document.querySelector("main h2");
-    if (h2Element) {
-      h2Element.remove();
+    const startingMainContent = document.querySelector("#main-starting-content");
+    if (startingMainContent) {
+      startingMainContent.remove();
     }
 
     displayResults(data);

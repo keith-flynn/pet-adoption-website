@@ -35,7 +35,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
+  padding: 15px;
 }
 
 body {
@@ -75,6 +75,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   margin: 15px;
+  gap: 15px;
 }
 
 .return-animal-container {
@@ -99,10 +100,11 @@ main {
 
 .all-animal-text {
   width: 100%;
+
 }
 
 .name-text {
-  color: blue;
+  font-weight: 600;
   font-size: 1.5em;
   padding: 3px;
 }
