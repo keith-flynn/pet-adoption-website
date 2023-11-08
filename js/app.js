@@ -102,12 +102,14 @@ function displayResults(data) {
   });
 }
 
+// Capitalize the first letter of each word in a string
 function capitalizeWords(input) {
   return input.replace(/\b\w+/g, function (word) {
     return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
   });
 }
 
+// Check data structure and append items to list
 function createDescription(obj, label, separator = ", ") {
   const descriptionList = [];
 
