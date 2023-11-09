@@ -58,6 +58,7 @@ body {
 } */
 
 .search-frame {
+  
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -66,6 +67,7 @@ body {
 
 main {
   display: flex;
+  
   align-items: center;
   justify-content: center;
   width: 85%;

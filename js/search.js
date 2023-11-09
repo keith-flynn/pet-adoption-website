@@ -23,6 +23,7 @@ document.getElementById("fetchButton").addEventListener("click", async () => {
   }
 });
 
+// console log and call displayResults
 function returnResults(data) {
   if (data) {
     console.log("API Response:", data);
@@ -37,6 +38,7 @@ function returnResults(data) {
   }
 }
 
+// Main function to display results
 function displayResults(data) {
   const resultsContainer = document.getElementById("results-container");
 
