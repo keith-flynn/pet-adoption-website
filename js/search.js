@@ -1,11 +1,11 @@
 "use-strict";
 
 const apiURL = "http://localhost:5000/api/";
-//const apiURL = "http://localhost:5000/api/search?name=boris";
+const searchURL = "http://localhost:5000/api/search?name=rocket";
 
 // Where the magic happens
-async function fetchData() {
-  const response = await fetch(apiURL, { method: "GET" });
+async function fetchData(url = apiURL) {
+  const response = await fetch(url, { method: "GET" });
   if (response.status === 200) {
     const data = await response.json();
     return data;
@@ -17,6 +17,15 @@ async function fetchData() {
 document.getElementById("fetchButton").addEventListener("click", async () => {
   try {
     const data = await fetchData();
+    returnResults(data);
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+document.getElementById("searchButton").addEventListener("click", async () => {
+  try {
+    const data = await fetchData(searchURL);
     returnResults(data);
   } catch (error) {
     console.error(error);
