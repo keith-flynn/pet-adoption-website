@@ -1,7 +1,6 @@
 "use-strict";
 
 const apiURL = "http://localhost:5000/api/";
-const searchURL = "http://localhost:5000/api/search?name=rocket";
 
 // Where the magic happens
 async function fetchData(url = apiURL) {
@@ -24,6 +23,9 @@ document.getElementById("fetchButton").addEventListener("click", async () => {
 });
 
 document.getElementById("searchButton").addEventListener("click", async () => {
+  const searchField = document.getElementById("search-input").value;
+  const searchURL = `http://localhost:5000/api/search?name=${searchField}`;
+  
   try {
     const data = await fetchData(searchURL);
     returnResults(data);
