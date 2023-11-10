@@ -33,7 +33,8 @@ router.get('/', function (req, res, next) {
 router.get('/search', function (req, res, next) {
   let searchObject = {
     "id": req.query.id,
-    "name": req.query.name
+    "breed": req.query.breed,
+    //"breed": req.query.breeds
   };
 
   petRepo.search(searchObject, function (data) {

@@ -24,7 +24,7 @@ document.getElementById("fetchButton").addEventListener("click", async () => {
 
 document.getElementById("searchButton").addEventListener("click", async () => {
   const searchField = document.getElementById("search-input").value;
-  const searchURL = `http://localhost:5000/api/search?name=${searchField}`;
+  const searchURL = `http://localhost:5000/api/search?breed=${searchField}`;
   
   try {
     const data = await fetchData(searchURL);

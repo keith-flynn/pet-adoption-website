@@ -38,11 +38,17 @@ let petRepo = {
           pets = pets.filter(
             (p) =>
               (searchObject.id ? p.id == searchObject.id : true) &&
-              (searchObject.name
-                ? p.name
+              (searchObject.breed
+                ? p.breeds.primary
                     .toLowerCase()
-                    .indexOf(searchObject.name.toLowerCase()) >= 0
-                : true)
+                    .indexOf(searchObject.breed.toLowerCase()) >= 0
+                : true) 
+              //   || 
+              // (searchObject.breed
+              //   ? p.breeds
+              //       .toLowerCase()
+              //       .indexOf(searchObject.breed.toLowerCase()) >= 0
+              //   : true)
           );
         }
         resolve(pets);
