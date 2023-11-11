@@ -55,16 +55,24 @@ let petRepo = {
                 ? p.size
                     .toLowerCase()
                     .indexOf(searchObject.size.toLowerCase()) >= 0
-                : true) &&
+                : true) 
+                &&
               (searchObject.age
                 ? p.age.toLowerCase().indexOf(searchObject.age.toLowerCase()) >=
                   0
-                : true) &&
+                : true) 
+                &&
               (searchObject.gender
                 ? p.gender
                     .toLowerCase()
                     .indexOf(searchObject.gender.toLowerCase()) >= 0
                 : true) 
+                &&
+              (searchObject.name
+                ? p.name
+                    .toLowerCase()
+                    .indexOf(searchObject.name.toLowerCase()) >= 0
+                : true)
           );
         }
         resolve(pets);
