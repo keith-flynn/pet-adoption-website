@@ -76,6 +76,31 @@ aside {
   margin: 10px;
   padding: 5px;
   border-radius: 10px;
+  text-align: center;
+}
+
+input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  
+}
+
+select {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  appearance: none;
+  min-width: 150px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .search-criteria {
@@ -147,3 +172,4 @@ footer {
   text-align: center;
   background-color: #3A86FF;
 }
+

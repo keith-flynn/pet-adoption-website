@@ -31,45 +31,95 @@
     <div class="aside-and-main">
       <aside class="search-frame">
         <div class="search-options">
-          <h2>Search</h2>
-          <input type="text" id="search-input" placeholder="Search..." />
-          <h3>Filter by Category:</h3>
+          <h3>Find Your New Pet</h3>
           <div class="search-criteria">
-            <label for="categoryA"
-              ><input
-                type="checkbox"
-                id="categoryA"
-                name="category"
-                value="A"
-              />
-              Fluffy</label
-            >
-            <label for="categoryB"
-              ><input
-                type="checkbox"
-                id="categoryB"
-                name="category"
-                value="B"
-              />
-              Cute</label
-            >
-            <label for="categoryC"
-              ><input
-                type="checkbox"
-                id="categoryC"
-                name="category"
-                value="C"
-              />
-              Snuggly</label
-            >
+            <div class="search-dropdown">
+              <form action="#">
+                <label for="breed-dropdown">Breed</label>
+                <select name="breeds" id="breed-dropdown">
+                  <option value="select">Any</option>
+                  <option value="javascript">JavaScript</option>
+                  <option value="php">PHP</option>
+                  <option value="java">Java</option>
+                  <option value="golang">Golang</option>
+                  <option value="python">Python</option>
+                  <option value="c#">C#</option>
+                  <option value="C++">C++</option>
+                  <option value="erlang">Erlang</option>
+                </select>                
+              </form>
+
+              <form action="#">
+                <label for="size-dropdown">Size</label>
+                <select name="sizes" id="size-dropdown">
+                  <option value="select">Any</option>
+                  <option value="javascript">JavaScript</option>
+                  <option value="php">PHP</option>
+                  <option value="java">Java</option>
+                  <option value="golang">Golang</option>
+                  <option value="python">Python</option>
+                  <option value="c#">C#</option>
+                  <option value="C++">C++</option>
+                  <option value="erlang">Erlang</option>
+                </select>                
+              </form>
+              <form action="#">
+                <label for="age-dropdown">Age</label>
+                <select name="ages" id="age-dropdown">
+                  <option value="select">Any</option>
+                  <option value="javascript">JavaScript</option>
+                  <option value="php">PHP</option>
+                  <option value="java">Java</option>
+                  <option value="golang">Golang</option>
+                  <option value="python">Python</option>
+                  <option value="c#">C#</option>
+                  <option value="C++">C++</option>
+                  <option value="erlang">Erlang</option>
+                </select>                
+              </form>
+              <form action="#">
+                <label for="gender-dropdown">Gender</label>
+                <select name="genders" id="gender-dropdown">
+                  <option value="select">Any</option>
+                  <option value="javascript">JavaScript</option>
+                  <option value="php">PHP</option>
+                  <option value="java">Java</option>
+                  <option value="golang">Golang</option>
+                  <option value="python">Python</option>
+                  <option value="c#">C#</option>
+                  <option value="C++">C++</option>
+                  <option value="erlang">Erlang</option>
+                </select>                
+              </form>
+              <form action="#">
+                <label for="color-dropdown">Color</label>
+                <select name="colors" id="color-dropdown">
+                  <option value="select">Any</option>
+                  <option value="javascript">JavaScript</option>
+                  <option value="php">PHP</option>
+                  <option value="java">Java</option>
+                  <option value="golang">Golang</option>
+                  <option value="python">Python</option>
+                  <option value="c#">C#</option>
+                  <option value="C++">C++</option>
+                  <option value="erlang">Erlang</option>
+                </select>                
+              </form>
+            </div>
+            <h3>Search Pet Name or Breed</h3>
+            <input type="text" id="search-input" placeholder="Search..." />
           </div>
-          <button class="search-buttons" id="fetchButton" type="submit">See All Pets</button>
-          <button class="search-buttons" id="searchButton" type="submit">Search</button>          
+          <button class="search-buttons" id="fetchButton" type="submit">
+            See All Pets
+          </button>
+          <button class="search-buttons" id="searchButton" type="submit">
+            Search
+          </button>
         </div>
       </aside>
       <main>
         <div id="main-starting-content">
-          <img id="main-starting-logo" src="./images/naptap-low-profile.png">
+          <img id="main-starting-logo" src="./images/naptap-low-profile.png" />
           <h2>Find your new family member today!</h2>
         </div>
         <div id="results-container"></div>
