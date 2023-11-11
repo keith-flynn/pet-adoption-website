@@ -24,7 +24,7 @@ document.getElementById("fetchButton").addEventListener("click", async () => {
 
 document.getElementById("searchButton").addEventListener("click", async () => {
   const searchField = document.getElementById("search-input").value;
-  const searchURL = `http://localhost:5000/api/search?breed=${searchField}`;
+  const searchURL = `http://localhost:5000/api/search?color=${searchField}`;
   
   try {
     const data = await fetchData(searchURL);
@@ -99,10 +99,10 @@ function displayResults(data) {
     const age = document.createElement("p");
     age.textContent = `Age: ${animal.age}`;
     animalStatsDiv.append(age);
-    // Sex
-    const sex = document.createElement("p");
-    sex.textContent = `Sex: ${animal.gender}`;
-    animalStatsDiv.appendChild(sex);
+    // Gender
+    const gender = document.createElement("p");
+    gender.textContent = `Gender: ${animal.gender}`;
+    animalStatsDiv.appendChild(gender);
     // Breeds
     const breed = document.createElement("p");
     if (animal.breeds.mixed) {

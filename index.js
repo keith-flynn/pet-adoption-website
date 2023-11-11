@@ -34,7 +34,10 @@ router.get('/search', function (req, res, next) {
   let searchObject = {
     "id": req.query.id,
     "breed": req.query.breed,
-    //"breed": req.query.breeds
+    "size": req.query.size,
+    "age": req.query.age,
+    "gender": req.query.gender,
+    "color": req.query.color
   };
 
   petRepo.search(searchObject, function (data) {
