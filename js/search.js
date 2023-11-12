@@ -23,11 +23,13 @@ document.getElementById("fetchButton").addEventListener("click", async () => {
 });
 
 document.getElementById("searchButton").addEventListener("click", async () => {
-  const searchField = document.getElementById("search-input").value;
-  const searchURL = `http://localhost:5000/api/search?name=${searchField}`;
+  
+
+
+  let joinedSearchURL = applySelectedCriteria();
 
   try {
-    const data = await fetchData(searchURL);
+    const data = await fetchData(joinedSearchURL);
     returnResults(data);
   } catch (error) {
     console.error(error);
@@ -49,7 +51,7 @@ function returnResults(data) {
 
     displayResults(data);
   }
-  applySelectedCriteria();
+  
 }
 
 // Main function to display results
@@ -351,10 +353,19 @@ function applySelectedCriteria() {
     allSearchCriteria.push(colorSelected);
   }
 
+  const searchField = document.getElementById("search-input").value;
+  if (searchField) {
+    allSearchCriteria.push(`name=${searchField}`);
+  }
+
   console.log(emptySearchURL);
   console.log(allSearchCriteria);
 
   let joinedSearchURL = emptySearchURL + allSearchCriteria.join("&");
   console.log(joinedSearchURL);
+
+  
+
+  return joinedSearchURL;
 
 };
