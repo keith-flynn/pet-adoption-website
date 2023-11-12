@@ -24,7 +24,7 @@ document.getElementById("fetchButton").addEventListener("click", async () => {
 
 document.getElementById("searchButton").addEventListener("click", async () => {
   const searchField = document.getElementById("search-input").value;
-  const searchURL = `http://localhost:5000/api/search?color=${searchField}`;
+  const searchURL = `http://localhost:5000/api/search?name=${searchField}`;
 
   try {
     const data = await fetchData(searchURL);
@@ -49,6 +49,7 @@ function returnResults(data) {
 
     displayResults(data);
   }
+  applySelectedCriteria();
 }
 
 // Main function to display results
@@ -305,7 +306,6 @@ function populateBreeds() {
     "Yorkshire Terrier",
   ];
 
-  // Get the select element by its ID
   const selectElement = document.getElementById("breed-dropdown");
 
   // Iterate through the array and create an option element for each breed
@@ -315,6 +315,46 @@ function populateBreeds() {
     optionElement.textContent = breed;
     selectElement.appendChild(optionElement);
   });
-}
+};
 
 populateBreeds();
+
+function applySelectedCriteria() {
+  const emptySearchURL = "http://localhost:5000/api/search?";
+  let allSearchCriteria = []
+
+  const breedDropdown = document.getElementById("breed-dropdown");
+  const breedSelected = (breedDropdown.value === "select") ? "" : "breed=" + `${breedDropdown.value}`;
+  allSearchCriteria.push(breedSelected);
+
+  const sizeDropdown = document.getElementById("size-dropdown");
+  const sizeSelected = (sizeDropdown.value === "select") ? "" : "size=" + `${sizeDropdown.value}`;
+  if (sizeSelected) {
+  allSearchCriteria.push(sizeSelected);
+  }
+
+  const ageDropdown = document.getElementById("age-dropdown");
+  const ageSelected = (ageDropdown.value === "select") ? "" : "age=" + `${ageDropdown.value}`;
+  if (ageSelected) {
+  allSearchCriteria.push(ageSelected);
+  }
+
+  const genderDropdown = document.getElementById("gender-dropdown");
+  const genderSelected = (genderDropdown.value === "select") ? "" : "gender=" + `${genderDropdown.value}`;
+  if (genderSelected) {
+    allSearchCriteria.push(genderSelected);
+  }
+
+  const colorDropdown = document.getElementById("color-dropdown");
+  const colorSelected = (colorDropdown.value === "select") ? "" : "color=" + `${colorDropdown.value}`;
+  if (colorSelected) {
+    allSearchCriteria.push(colorSelected);
+  }
+
+  console.log(emptySearchURL);
+  console.log(allSearchCriteria);
+
+  let joinedSearchURL = emptySearchURL + allSearchCriteria.join("&");
+  console.log(joinedSearchURL);
+
+};
