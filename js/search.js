@@ -2,7 +2,7 @@
 
 const apiURL = "http://localhost:5000/api/";
 
-// Where the magic happens
+// Fetch request
 async function fetchData(url = apiURL) {
   const response = await fetch(url, { method: "GET" });
   if (response.status === 200) {
@@ -13,6 +13,7 @@ async function fetchData(url = apiURL) {
   }
 }
 
+// DEBUG depricated
 document.getElementById("fetchButton").addEventListener("click", async () => {
   try {
     const data = await fetchData();
@@ -22,6 +23,7 @@ document.getElementById("fetchButton").addEventListener("click", async () => {
   }
 });
 
+// Search button even listener
 document.getElementById("searchButton").addEventListener("click", async () => {
   let joinedSearchURL = applySelectedCriteria();
 
@@ -33,51 +35,51 @@ document.getElementById("searchButton").addEventListener("click", async () => {
   }
 });
 
-// console log and call displayResults
+// console log returned JSON object and call displayResults
 function returnResults(data) {
   if (data) {
     // DEBUG
     console.log("API Response:", data);
 
-    const resultsContainer = document.getElementById("results-container")
-
-    // Remove contents of main to display results after search
     const startingMainContent = document.querySelector(
       "#main-starting-content"
     );
-    
+    const resultsContainer = document.getElementById("results-container");
+
     // DEBUG
     console.log(data.data.length);
 
+    // Remove contents of main to display results after search
     if (data.data.length > 0 && startingMainContent) {
       startingMainContent.remove();
 
       displayResults(data);
-    } else {      
+    } else {
+      // Message for no results returned
       const noResults = document.createElement("h2");
-      noResults.textContent = "Sorry, your search returned no results."
+      noResults.textContent = "Sorry, your search returned no results.";
       resultsContainer.appendChild(noResults);
     }
 
-    const numberReturned = document.getElementById("number-returned");    
+    const numberReturned = document.getElementById("number-returned");
     const resultAmount = document.createElement("h3");
     resultAmount.textContent = `Your search returned ${data.data.length} results...`;
-
     numberReturned.appendChild(resultAmount);
-    
+
+    // DEBUG
     console.log(`Your search returned ${data.data.length} results...`);
   }
-  
 }
 
 // Main function to display results
 function displayResults(data) {
   const resultsContainer = document.getElementById("results-container");
-  // if results container has elements, replace them. !!!
+  // If results container has existing elements, replace them with emptiness
   if (resultsContainer.hasChildNodes()) {
     resultsContainer.replaceChildren();
   }
 
+  // Iterate through results
   data.data.forEach((animal) => {
     const returnAnimalDiv = document.createElement("div");
     returnAnimalDiv.classList.add("return-animal-container");
@@ -175,6 +177,7 @@ function createDescription(obj, label, separator = ", ") {
   }
 }
 
+// Generate select elements for breeds-dropdown
 function populateBreeds() {
   const dogBreeds = [
     "Akbash",
@@ -266,7 +269,7 @@ function populateBreeds() {
     "Jack Russell Terrier",
     "Japanese Chin",
     "Labradoodle",
-    "Labrador Retriever",    
+    "Labrador Retriever",
     "Maltese",
     "Manchester Terrier",
     "Mastiff",
@@ -337,38 +340,46 @@ function populateBreeds() {
     optionElement.textContent = breed;
     selectElement.appendChild(optionElement);
   });
-};
-
+}
+// DEBUG - IIFE or separate js file
 populateBreeds();
 
+// DEBUG - iterate this
 function applySelectedCriteria() {
   const emptySearchURL = "http://localhost:5000/api/search?";
-  let allSearchCriteria = []
+  let allSearchCriteria = [];
 
   const breedDropdown = document.getElementById("breed-dropdown");
-  const breedSelected = (breedDropdown.value === "select") ? "" : "breed=" + `${breedDropdown.value}`;
+  const breedSelected =
+    breedDropdown.value === "select" ? "" : "breed=" + `${breedDropdown.value}`;
   allSearchCriteria.push(breedSelected);
 
   const sizeDropdown = document.getElementById("size-dropdown");
-  const sizeSelected = (sizeDropdown.value === "select") ? "" : "size=" + `${sizeDropdown.value}`;
+  const sizeSelected =
+    sizeDropdown.value === "select" ? "" : "size=" + `${sizeDropdown.value}`;
   if (sizeSelected) {
-  allSearchCriteria.push(sizeSelected);
+    allSearchCriteria.push(sizeSelected);
   }
 
   const ageDropdown = document.getElementById("age-dropdown");
-  const ageSelected = (ageDropdown.value === "select") ? "" : "age=" + `${ageDropdown.value}`;
+  const ageSelected =
+    ageDropdown.value === "select" ? "" : "age=" + `${ageDropdown.value}`;
   if (ageSelected) {
-  allSearchCriteria.push(ageSelected);
+    allSearchCriteria.push(ageSelected);
   }
 
   const genderDropdown = document.getElementById("gender-dropdown");
-  const genderSelected = (genderDropdown.value === "select") ? "" : "gender=" + `${genderDropdown.value}`;
+  const genderSelected =
+    genderDropdown.value === "select"
+      ? ""
+      : "gender=" + `${genderDropdown.value}`;
   if (genderSelected) {
     allSearchCriteria.push(genderSelected);
   }
 
   const colorDropdown = document.getElementById("color-dropdown");
-  const colorSelected = (colorDropdown.value === "select") ? "" : "color=" + `${colorDropdown.value}`;
+  const colorSelected =
+    colorDropdown.value === "select" ? "" : "color=" + `${colorDropdown.value}`;
   if (colorSelected) {
     allSearchCriteria.push(colorSelected);
   }
@@ -378,8 +389,7 @@ function applySelectedCriteria() {
     allSearchCriteria.push(`name=${searchField}`);
   }
 
-  let joinedSearchURL = emptySearchURL + allSearchCriteria.join("&");  
+  let joinedSearchURL = emptySearchURL + allSearchCriteria.join("&");
 
   return joinedSearchURL;
-
-};
+}
