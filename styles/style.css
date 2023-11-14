@@ -126,6 +126,7 @@ main {
   align-items: center;
   justify-content: center;
   background-color: lightgray;
+  flex-direction: column;
 }
 
 #main-starting-content {
@@ -147,6 +148,7 @@ main {
   flex-wrap: wrap;
   margin: 15px;
   gap: 15px;
+  justify-content: center;
 }
 
 .return-animal-container {
@@ -180,7 +182,9 @@ main {
   padding: 3px;
 }
 
-
+/* .result-bottom-div {
+  align-self: flex-end;
+} */
 
 footer {
   text-align: center;

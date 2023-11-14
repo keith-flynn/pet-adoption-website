@@ -23,9 +23,6 @@ document.getElementById("fetchButton").addEventListener("click", async () => {
 });
 
 document.getElementById("searchButton").addEventListener("click", async () => {
-  
-
-
   let joinedSearchURL = applySelectedCriteria();
 
   try {
@@ -39,17 +36,35 @@ document.getElementById("searchButton").addEventListener("click", async () => {
 // console log and call displayResults
 function returnResults(data) {
   if (data) {
+    // DEBUG
     console.log("API Response:", data);
+
+    const resultsContainer = document.getElementById("results-container")
 
     // Remove contents of main to display results after search
     const startingMainContent = document.querySelector(
       "#main-starting-content"
     );
-    if (startingMainContent) {
+    
+    // DEBUG
+    console.log(data.data.length);
+
+    if (data.data.length > 0) {
       startingMainContent.remove();
+      displayResults(data);
+    } else {      
+      const noResults = document.createElement("h2");
+      noResults.textContent = "Sorry, your search returned no results."
+      resultsContainer.appendChild(noResults);
     }
 
-    displayResults(data);
+    const numberReturned = document.getElementById("number-returned");    
+    const resultAmount = document.createElement("h3");
+    resultAmount.textContent = `Your search returned ${data.data.length} results...`;
+
+    numberReturned.appendChild(resultAmount);
+    
+    console.log(`Your search returned ${data.data.length} results...`);
   }
   
 }
@@ -57,6 +72,10 @@ function returnResults(data) {
 // Main function to display results
 function displayResults(data) {
   const resultsContainer = document.getElementById("results-container");
+  // if results container has elements, replace them. !!!
+  if (resultsContainer.hasChildNodes()) {
+    resultsContainer.replaceChildren();
+  }
 
   data.data.forEach((animal) => {
     const returnAnimalDiv = document.createElement("div");
@@ -358,13 +377,7 @@ function applySelectedCriteria() {
     allSearchCriteria.push(`name=${searchField}`);
   }
 
-  console.log(emptySearchURL);
-  console.log(allSearchCriteria);
-
-  let joinedSearchURL = emptySearchURL + allSearchCriteria.join("&");
-  console.log(joinedSearchURL);
-
-  
+  let joinedSearchURL = emptySearchURL + allSearchCriteria.join("&");  
 
   return joinedSearchURL;
 
