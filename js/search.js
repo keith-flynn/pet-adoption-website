@@ -418,3 +418,25 @@ function applySelectedCriteria() {
 
   return joinedSearchURL;
 }
+
+// Scroll to top buttion functionality
+let scrollToTopButton = document.getElementById("scroll-to-top-button");
+
+// When the user scrolls down 250px show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+    scrollToTopButton.style.display = "block";
+  } else {
+    scrollToTopButton.style.display = "none";
+  }
+}
+
+// Scroll to top on click
+function topFunction() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth" // not supported in Safari
+  });
+} 
