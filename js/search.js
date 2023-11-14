@@ -13,15 +13,11 @@ async function fetchData(url = apiURL) {
   }
 }
 
-// DEBUG depricated
-document.getElementById("fetchButton").addEventListener("click", async () => {
-  try {
-    const data = await fetchData();
-    returnResults(data);
-  } catch (error) {
-    console.error(error);
-  }
-});
+// Clear Results button reloads page
+const refreshPage = () => {
+  location.reload();
+}
+document.getElementById("clearButton").addEventListener("click", refreshPage);
 
 // Search button even listener
 document.getElementById("searchButton").addEventListener("click", async () => {
