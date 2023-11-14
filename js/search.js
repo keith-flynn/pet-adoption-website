@@ -19,8 +19,10 @@ const refreshPage = () => {
 }
 document.getElementById("clearButton").addEventListener("click", refreshPage);
 
-// Search button even listener
-document.getElementById("searchButton").addEventListener("click", async () => {
+// Search button event listeners
+const searchButton = document.getElementById("searchButton");
+// For clicks
+searchButton.addEventListener("click", async () => {
   let joinedSearchURL = applySelectedCriteria();
 
   try {
@@ -31,15 +33,32 @@ document.getElementById("searchButton").addEventListener("click", async () => {
   }
 });
 
+// function enterPress(event) {
+//   if (event.key == "Enter") {
+      
+//       console.log("press press press");
+//       returnResults(data);
+//   }
+// }
+
+// For pressing Enter
+// searchButton.addEventListener("keypress", function(event) {
+//   // If the user presses the "Enter" key on the keyboard
+//   if (event.key === "Enter") {
+//     // Cancel the default action, if needed
+//     //event.preventDefault();
+//     // Trigger the button element with a click
+//     searchButton.click();
+//   }
+// }); 
+
 // console log returned JSON object and call displayResults
 function returnResults(data) {
   if (data) {
     // DEBUG
     console.log("API Response:", data);
 
-    const startingMainContent = document.querySelector(
-      "#main-starting-content"
-    );
+    const mainStartingContent = document.getElementById("main-starting-content");
     const resultsContainer = document.getElementById("results-container");
 
     // DEBUG
@@ -49,14 +68,15 @@ function returnResults(data) {
     if (data.data.length > 0) {
 
       // Remove main-starting-content if it is still in DOM
-      if (startingMainContent) {
-        startingMainContent.remove();
+      if (mainStartingContent) {
+        mainStartingContent.remove();
       }
 
       displayResults(data);
 
     } else {
       // Message for no results returned
+      resultsContainer.replaceChildren(); // Remove existing results
       const noResults = document.createElement("h2");
       noResults.textContent = "Sorry, your search returned no results.";
       resultsContainer.appendChild(noResults);
