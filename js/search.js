@@ -49,8 +49,9 @@ function returnResults(data) {
     // DEBUG
     console.log(data.data.length);
 
-    if (data.data.length > 0) {
+    if (data.data.length > 0 && startingMainContent) {
       startingMainContent.remove();
+
       displayResults(data);
     } else {      
       const noResults = document.createElement("h2");
