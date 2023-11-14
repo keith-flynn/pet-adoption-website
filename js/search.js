@@ -49,11 +49,16 @@ function returnResults(data) {
     // DEBUG
     console.log(data.data.length);
 
-    // Remove contents of main to display results after search
-    if (data.data.length > 0 && startingMainContent) {
-      startingMainContent.remove();
+    // Change contents of main if any results are returned
+    if (data.data.length > 0) {
+
+      // Remove main-starting-content if it is still in DOM
+      if (startingMainContent) {
+        startingMainContent.remove();
+      }
 
       displayResults(data);
+
     } else {
       // Message for no results returned
       const noResults = document.createElement("h2");
@@ -62,6 +67,10 @@ function returnResults(data) {
     }
 
     const numberReturned = document.getElementById("number-returned");
+    if (numberReturned.hasChildNodes()) {
+      numberReturned.replaceChildren();
+    }
+    
     const resultAmount = document.createElement("h3");
     resultAmount.textContent = `Your search returned ${data.data.length} results...`;
     numberReturned.appendChild(resultAmount);
@@ -74,7 +83,7 @@ function returnResults(data) {
 // Main function to display results
 function displayResults(data) {
   const resultsContainer = document.getElementById("results-container");
-  // If results container has existing elements, replace them with emptiness
+  // If results-container has existing elements, replace them with emptiness
   if (resultsContainer.hasChildNodes()) {
     resultsContainer.replaceChildren();
   }
