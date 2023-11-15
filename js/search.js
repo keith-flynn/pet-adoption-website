@@ -33,25 +33,17 @@ searchButton.addEventListener("click", async () => {
     console.error(error);
   }
 });
-
-// function enterPress(event) {
-//   if (event.key == "Enter") {
-      
-//       console.log("press press press");
-//       returnResults(data);
-//   }
-// }
-
 // For pressing Enter
-// searchButton.addEventListener("keypress", function(event) {
-//   // If the user presses the "Enter" key on the keyboard
-//   if (event.key === "Enter") {
-//     // Cancel the default action, if needed
-//     //event.preventDefault();
-//     // Trigger the button element with a click
-//     searchButton.click();
-//   }
-// }); 
+const searchInput = document.getElementById("search-input");
+searchInput.addEventListener("keypress", function(event) {
+  // If the keypress is enter
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed - IDK
+    event.preventDefault();
+    // Trigger button element with a click
+    searchButton.click();
+  }
+}); 
 
 // console log returned JSON object and call displayResults
 function returnResults(data) {

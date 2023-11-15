@@ -118,6 +118,7 @@ select {
   font-weight: 700;
   background-color: #3A86FF;
   border-radius: 10px;
+  margin: 15px;
 }
 
 main {
