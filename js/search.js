@@ -1,4 +1,5 @@
 "use-strict";
+import { dogBreeds, catBreeds } from  "./dropdownArrays.js";
 
 const apiURL = "http://localhost:5000/api/";
 
@@ -203,171 +204,21 @@ function createDescription(obj, label, separator = ", ") {
 }
 
 // Generate select elements for breeds-dropdown
-function populateBreeds() {
-  const dogBreeds = [
-    "Akbash",
-    "Akita",
-    "Alaskan Malamute",
-    "American Bulldog",
-    "American Bully",
-    "American Eskimo Dog",
-    "American Foxhound",
-    "American Staffordshire Terrier",
-    "Anatolian Shepherd",
-    "Aussiedoodle",
-    "Australian Cattle Dog",
-    "Blue Heeler",
-    "Australian Kelpie",
-    "Australian Shepherd",
-    "Basenji",
-    "Basset Hound",
-    "Beagle",
-    "Beauceron",
-    "Bedlington Terrier",
-    "Belgian Shepherd / Malinois",
-    "Bernedoodle",
-    "Bernese Mountain Dog",
-    "Bichon Frise",
-    "Black and Tan Coonhound",
-    "Black Labrador Retriever",
-    "Black Mouth Cur",
-    "Bloodhound",
-    "Bluetick Coonhound",
-    "Border Collie",
-    "Borzoi",
-    "Boston Terrier",
-    "Bouvier des Flandres",
-    "Boxer",
-    "Boykin Spaniel",
-    "Briard",
-    "Brittany Spaniel",
-    "Bull Terrier",
-    "Bullmastiff",
-    "Cairn Terrier",
-    "Cane Corso",
-    "Cardigan Welsh Corgi",
-    "Carolina Dog",
-    "Catahoula Leopard Dog",
-    "Cattle Dog",
-    "Cavalier King Charles Spaniel",
-    "Cavapoo",
-    "Chihuahua",
-    "Chinese Crested Dog",
-    "Chiweenie",
-    "Chocolate Labrador Retriever",
-    "Chow Chow",
-    "Cockapoo",
-    "Cocker Spaniel",
-    "Collie",
-    "Coonhound",
-    "Corgi",
-    "Dachshund",
-    "Dalmatian",
-    "Doberman Pinscher",
-    "Dogo Argentino",
-    "Dutch Shepherd",
-    "English Bulldog",
-    "English Coonhound",
-    "English Pointer",
-    "English Setter",
-    "English Shepherd",
-    "English Springer Spaniel",
-    "Feist",
-    "Flat-Coated Retriever",
-    "Fox Terrier",
-    "Foxhound",
-    "French Bulldog",
-    "German Pinscher",
-    "German Shepherd Dog",
-    "German Shorthaired Pointer",
-    "German WireHaired Pointer",
-    "Golden Retriever",
-    "Goldendoodle",
-    "Great Dane",
-    "Great Pyrenees",
-    "Greyhound",
-    "Havanese",
-    "Hound",
-    "Husky",
-    "Irish Setter",
-    "Italian Greyhound",
-    "Jack Russell Terrier",
-    "Japanese Chin",
-    "Labradoodle",
-    "Labrador Retriever",
-    "Maltese",
-    "Manchester Terrier",
-    "Mastiff",
-    "Miniature Dachshund",
-    "Miniature Pinscher",
-    "Miniature Poodle",
-    "Miniature Schnauzer",
-    "Mixed Breed",
-    "Mountain Cur",
-    "Mountain Dog",
-    "Newfoundland Dog",
-    "Norfolk Terrier",
-    "Norweigan Elkhound",
-    "Old English Sheepdog",
-    "Papillon",
-    "Patterdale Terrier",
-    "Fell Terrier",
-    "Pekingese",
-    "Peruvian Inca Orchid",
-    "Pharaoh Hound",
-    "Pit Bull Terrier",
-    "Plott Hound",
-    "Pointer",
-    "Pomeranian",
-    "Pomsky",
-    "Poodle",
-    "Pug",
-    "Puggle",
-    "Rat Terrier",
-    "Redbone Coonhound",
-    "Retriever",
-    "Rhodesian Ridgeback",
-    "Rottweiler",
-    "Rough Collie",
-    "Saint Bernard",
-    "Samoyed",
-    "Schipperke",
-    "Schnauzer",
-    "Setter",
-    "Shar-Pei",
-    "Shepherd",
-    "Shetland Sheepdog",
-    "Shiba Inu",
-    "Shih Tzu",
-    "Siberian Husky",
-    "Silky Terrier",
-    "Smooth Collie",
-    "Spaniel",
-    "Staffordshire Bull Terrier",
-    "Standard Schnauzer",
-    "Terrier",
-    "Treeing Walker Coonhound",
-    "Weimaraner",
-    "Westie",
-    "Whippet",
-    "White German Shepherd",
-    "Wirehaired Terrier",
-    "Yellow Labrador Retriever",
-    "Yorkshire Terrier",
-  ];
-
+function populateBreeds(animalType) {
+  
   const selectElement = document.getElementById("breed-dropdown");
 
   // Iterate through the array and create an option element for each breed
-  dogBreeds.forEach((breed) => {
+  animalType.forEach((breed) => {
     const optionElement = document.createElement("option");
     optionElement.value = breed.toLowerCase(); // Set the value to lowercase for consistency
     optionElement.textContent = breed;
     selectElement.appendChild(optionElement);
   });
 }
+
 // DEBUG - IIFE or separate js file
-populateBreeds();
+populateBreeds(dogBreeds);
 
 // DEBUG - iterate this
 function applySelectedCriteria() {
@@ -422,6 +273,8 @@ function applySelectedCriteria() {
 // Scroll to top buttion functionality
 let scrollToTopButton = document.getElementById("scroll-to-top-button");
 
+scrollToTopButton.addEventListener("click", topFunction);
+
 // When the user scrolls down 250px show the button
 window.onscroll = function() {scrollFunction()};
 
@@ -437,6 +290,7 @@ function scrollFunction() {
 function topFunction() {
   window.scrollTo({
     top: 0,
-    behavior: "smooth" // not supported in Safari
+    behavior: "smooth"
   });
-} 
+}
+
