@@ -1,9 +1,9 @@
-/* 
-#1B262C
-#0F4C75
-#3282B8
-#BBE1FA 
-*/
+:root {
+  --main-header-color: #1B262C;
+  --search-background-color: #0F4C75;
+  --secondary-color: #3282B8;
+  --main-background-color: #BBE1FA; 
+}
 
 * {
   padding: 0;
@@ -17,7 +17,16 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #BBE1FA ;
+  background-color: var(--main-background-color);
+}
+
+a {
+  color: var(--main-header-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--search-background-color);
 }
 
 h2,
@@ -26,7 +35,7 @@ h3 {
 }
 
 header {
-  background-color: #1B262C;
+  background-color: var(--main-header-color);
   display: flex;  
   justify-content: center;
 }
@@ -35,9 +44,15 @@ header {
   display: none;
 }
 
+.header-center {
+  background-color: var(--secondary-color);
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 15px;
+}
 
 #medium-text-logo {
-  max-height: 75px;
+  max-height: 50px;
 }
 
 .aside-and-main {
@@ -49,7 +64,7 @@ header {
 .search-frame {
   display: flex;
   justify-content: center;
-  background-color: #0F4C75;
+  background-color: var(--search-background-color);
 }
 
 #search-input {
@@ -58,7 +73,7 @@ header {
   padding: 5px;
   border-radius: 10px;
   text-align: center;
-  background-color: #BBE1FA ;
+  background-color: var(--main-background-color) ;
 }
 
 input {
@@ -82,7 +97,7 @@ select {
   width: 125px;
   border-radius: 5px;
   text-align: center;
-  background-color: #BBE1FA ;
+  background-color: var(--main-background-color) ;
   padding: 3px;
 }
 
@@ -93,7 +108,7 @@ select {
 }
 
 .search-dropdown {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -101,9 +116,13 @@ select {
 .search-buttons {
   padding: 7px;
   font-weight: 700;
-  background-color: #3A86FF;
+  background-color: var(--secondary-color);
   border-radius: 10px;
   margin: 10px;
+}
+
+.search-buttons:hover {
+  color: var(--main-background-color);
 }
 
 #main {
@@ -113,7 +132,7 @@ select {
 
 #main-starting-content {
   
-  background-color: #3A86FF;
+  background-color: var(--search-background-color);
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -123,7 +142,7 @@ select {
 }
 
 #main-starting-logo {
-  background-color: #3282B8;
+  background-color: var(--secondary-color);
   max-width: 275px;
   border-radius: 10px;
   margin: 25px;
@@ -190,7 +209,7 @@ select {
 
   footer {
     text-align: center;
-    background-color: #3282B8 ;
+    background-color: var(--secondary-color) ;
   }
 
   .fa-arrow-up-right-from-square {
@@ -203,7 +222,7 @@ select {
     display: flex;
     align-items: center;
     margin-left: 11px;
-    background-color: #3282B8;
+    background-color: var(--secondary-color);
     padding: 10px;
     border-radius: 100%;
   }
@@ -215,7 +234,7 @@ select {
 
   #medium-text-logo {
     height: 100px;
-    background-color: #3282B8;
+    background-color: var(--secondary-color);
     padding: 10px;
     border-radius: 10px;
    
@@ -256,13 +275,17 @@ select {
     padding-top: 100px;
   }
 
+  .search-dropdown {
+    display: flex;
+  }
+
   #search-input {
     max-width: 145px;
     margin: 10px;
     padding: 5px;
     border-radius: 10px;
     text-align: center;
-    background-color: #BBE1FA;
+    background-color: var(--main-background-color);
   }
 
   input {
@@ -288,7 +311,7 @@ select {
     width: 150px;
     border-radius: 5px;
     text-align: center;
-    background-color: #BBE1FA ;
+    background-color: var(--main-background-color) ;
     padding: 3px;
   }
 
@@ -301,7 +324,7 @@ select {
     padding: 10px;
     font-weight: 700;
     
-    background-color: #3282B8;
+    background-color: var(--secondary-color);
     border-radius: 10px;
     margin: 15px;
   }
@@ -311,12 +334,12 @@ select {
     flex: 6 1 auto;
     align-items: center;
     justify-content: center;
-    background-color: #BBE1FA ;
+    background-color: var(--main-background-color) ;
     flex-direction: column;
   }
 
   #main-starting-content {
-    background-color: #0F4C75;
+    background-color: var(search-background-color);
     padding: 25px;
     border-radius: 10px;
   }
@@ -324,7 +347,7 @@ select {
   #main-starting-logo {
     max-width: 600px;
     margin: 25px;
-    background-color: #3282B8;
+    background-color: var(--secondary-color);
     padding: 25px;
     border-radius: 10px;
   }
@@ -370,7 +393,7 @@ select {
 
   footer {
     text-align: center;
-    background-color: #3282B8;
+    background-color: var(--secondary-color);
     border: none;
     padding: 15px;
   }
