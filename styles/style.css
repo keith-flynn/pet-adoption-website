@@ -1,3 +1,10 @@
+/* 
+#1B262C
+#0F4C75
+#3282B8
+#BBE1FA 
+*/
+
 * {
   padding: 0;
   margin: 0;
@@ -10,14 +17,17 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: lightgray;
+  background-color: #BBE1FA ;
+}
+
+h2,
+h3 {
+  text-align: center;
 }
 
 header {
-  background-color: #fb5607;
-  border: 4px solid #3A86FF;
-  display: flex;
-  
+  background-color: #1B262C;
+  display: flex;  
   justify-content: center;
 }
 
@@ -30,9 +40,70 @@ header {
   max-height: 75px;
 }
 
+.aside-and-main {
+  display: flex;
+  flex-direction: column;
+  justify-items: space-between;
+}
+
 .search-frame {
   display: flex;
   justify-content: center;
+  background-color: #0F4C75;
+}
+
+#search-input {
+  max-width: 145px;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #BBE1FA ;
+}
+
+input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  
+}
+
+label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  
+}
+
+select {  
+  appearance: none;
+  width: 125px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #BBE1FA ;
+  padding: 3px;
+}
+
+.search-criteria {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-dropdown {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.search-buttons {
+  padding: 7px;
+  font-weight: 700;
+  background-color: #3A86FF;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 #main {
@@ -52,11 +123,50 @@ header {
 }
 
 #main-starting-logo {
-  background-color: #fb5607;
+  background-color: #3282B8;
   max-width: 275px;
   border-radius: 10px;
   margin: 25px;
   padding: 20px;
+}
+
+#results-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px;
+  gap: 15px;
+  justify-content: center;
+}
+
+.return-animal-container {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 15px; */
+}
+
+.return-animal-container,
+.return-animal-container p {
+  border: 1px solid black;
+}
+
+#results-container img {
+  max-width: 115px;
+  max-height: 115px;
+  padding: 15px;
+}
+
+.all-animal-text {
+  width: 100%;
+
+}
+
+.name-text {
+  font-weight: 600;
+  font-size: 1.5em;
+  padding: 3px;
 }
 
 #scroll-to-top-button {
@@ -80,9 +190,7 @@ header {
 
   footer {
     text-align: center;
-    background-color: lightgray;
-    border: 2px solid #fb5607;
-    padding: 15px;
+    background-color: #3282B8 ;
   }
 
   .fa-arrow-up-right-from-square {
@@ -91,16 +199,11 @@ header {
 
 @media only screen and (min-width: 480px) {
   
-  header {
-    background-color: #fb5607;
-    border: 4px solid #3A86FF;
-  }
-
   .header-logo {
     display: flex;
     align-items: center;
     margin-left: 11px;
-    background-color: #3A86FF;
+    background-color: #3282B8;
     padding: 10px;
     border-radius: 100%;
   }
@@ -112,10 +215,10 @@ header {
 
   #medium-text-logo {
     height: 100px;
-    background-color: #3A86FF;
+    background-color: #3282B8;
     padding: 10px;
     border-radius: 10px;
-
+   
   }
 
   header {
@@ -141,7 +244,7 @@ header {
   }
 
   aside {
-    background-color: #fb5607;
+    /* background-color: #fb5607; */
     flex: 1 1 0;
     border-radius: 0 10px 10px 0;
   }
@@ -159,7 +262,7 @@ header {
     padding: 5px;
     border-radius: 10px;
     text-align: center;
-    background-color: lightgray;
+    background-color: #BBE1FA;
   }
 
   input {
@@ -185,7 +288,7 @@ header {
     width: 150px;
     border-radius: 5px;
     text-align: center;
-    background-color: lightgray;
+    background-color: #BBE1FA ;
     padding: 3px;
   }
 
@@ -197,7 +300,8 @@ header {
   .search-buttons {
     padding: 10px;
     font-weight: 700;
-    background-color: #3A86FF;
+    
+    background-color: #3282B8;
     border-radius: 10px;
     margin: 15px;
   }
@@ -207,12 +311,12 @@ header {
     flex: 6 1 auto;
     align-items: center;
     justify-content: center;
-    background-color: lightgray;
+    background-color: #BBE1FA ;
     flex-direction: column;
   }
 
   #main-starting-content {
-    background-color: #3A86FF;
+    background-color: #0F4C75;
     padding: 25px;
     border-radius: 10px;
   }
@@ -220,7 +324,7 @@ header {
   #main-starting-logo {
     max-width: 600px;
     margin: 25px;
-    background-color: #fb5607;
+    background-color: #3282B8;
     padding: 25px;
     border-radius: 10px;
   }
@@ -266,7 +370,7 @@ header {
 
   footer {
     text-align: center;
-    background-color: #3A86FF;
+    background-color: #3282B8;
     border: none;
     padding: 15px;
   }
