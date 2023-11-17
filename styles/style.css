@@ -67,6 +67,14 @@ header {
   background-color: var(--search-background-color);
 }
 
+.collapsible-button {
+  padding: 5px;
+  font-weight: 700;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  margin: 10px;
+}
+
 #search-input {
   max-width: 145px;
   margin: 10px;
@@ -277,6 +285,10 @@ select {
 
   .search-dropdown {
     display: flex;
+  }
+
+  .collapsible-button {
+    display: none;
   }
 
   #search-input {

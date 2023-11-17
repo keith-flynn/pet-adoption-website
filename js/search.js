@@ -286,12 +286,19 @@ function topFunction() {
   });
 }
 
-// Collapse filters button
-const collapsibleButton = document.getElementsByClassName("collapsible-button");
+// Expand and Collapse button
+const collapsibleButtons = document.getElementsByClassName("collapsible-button");
 
-for (let i = 0; i < collapsibleButton.length; i++) {
-  collapsibleButton[i].addEventListener("click", function() {
+for (let i = 0; i < collapsibleButtons.length; i++) {
+  collapsibleButtons[i].addEventListener("click", function() {
     this.classList.toggle("active");
+
+    // Toggle the icon
+    const iconElement = this.querySelector("i");
+    
+    iconElement.classList.toggle("fa-angles-down");
+    iconElement.classList.toggle("fa-angles-up");
+
     let content = this.nextElementSibling;
     if (content.style.display === "flex") {
       content.style.display = "none";
