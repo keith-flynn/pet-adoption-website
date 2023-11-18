@@ -214,7 +214,8 @@ populateBreeds(dogBreeds);
 
 // DEBUG - iterate this
 function applySelectedCriteria() {
-  const emptySearchURL = "https://naptap.replit.app/api/search?";
+  //const emptySearchURL = "https://naptap.replit.app/api/search?";
+  const emptySearchURL = "http://localhost:5000/api/search?";
   let allSearchCriteria = [];
 
   const breedDropdown = document.getElementById("breed-dropdown");
