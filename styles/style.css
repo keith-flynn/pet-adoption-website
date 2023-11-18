@@ -17,7 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--main-background-color);
+  background-color: var(--main-background-color);  
 }
 
 a {
@@ -60,10 +60,6 @@ header {
   display: flex;
   flex-direction: column;
   justify-items: space-between;
-}
-
-aside {
-  border-radius: 0 0 10px 10px;
 }
 
 .search-frame {
@@ -141,18 +137,19 @@ select {
 }
 
 #main {
-  margin: 15px;
+  background-image: url("../images/clinic.jpg");
+  background-size: cover;
 }
 
 #main-starting-content {
-  background-color: var(--search-background-color);
-  padding: 40px;
+  background-color: var(--search-background-color);  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   border-radius: 10px;
+  margin: 35px;
 }
 
 #main-starting-logo {
@@ -177,11 +174,14 @@ select {
 }
 
 .return-animal-container {
+  flex: 1 0 200px;
+  background-color: var(--main-background-color);
   display: flex;
   flex-direction: column;
-  width: 150px;
+  max-width: 175px;
   justify-content: space-between;
   align-items: center;
+  border-radius: 10px;
   /* padding: 15px; */
 }
 
@@ -277,7 +277,6 @@ footer {
 
   aside {
     flex: 1 1 0;
-    border-radius: 0 10px 10px 0;
   }
 
   .search-frame {
@@ -348,13 +347,11 @@ footer {
     flex: 6 1 auto;
     align-items: center;
     justify-content: center;
-    background-color: var(--main-background-color);
     flex-direction: column;
   }
 
   #main-starting-content {
     background-color: var(search-background-color);
-    padding: 25px;
   }
 
   #main-starting-logo {
@@ -379,7 +376,7 @@ footer {
   }
 
   .return-animal-container {
-    flex: 1 0 200px;
+    width: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -393,7 +390,7 @@ footer {
   }
 
   #results-container img {
-    max-width: 180px;
+    max-width: 145px;
     max-height: 180px;
     padding: 15px;
   }
