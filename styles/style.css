@@ -30,7 +30,8 @@ a:hover {
 }
 
 h2,
-h3 {
+h3,
+h4 {
   text-align: center;
 }
 
@@ -63,7 +64,7 @@ header {
 
 .search-frame {
   display: flex;
-  justify-content: center;
+  justify-content: center;  
   background-color: var(--search-background-color);
 }
 
@@ -97,7 +98,7 @@ label {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  
+  font-weight: 600;
 }
 
 select {  
@@ -107,12 +108,14 @@ select {
   text-align: center;
   background-color: var(--main-background-color) ;
   padding: 3px;
+  margin: 5px;
 }
 
 .search-criteria {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 
 .search-dropdown {
@@ -126,7 +129,7 @@ select {
   font-weight: 700;
   background-color: var(--secondary-color);
   border-radius: 10px;
-  margin: 10px;
+  margin: 6px;
 }
 
 .search-buttons:hover {
@@ -155,6 +158,11 @@ select {
   border-radius: 10px;
   margin: 25px;
   padding: 20px;
+}
+
+#main-starting-content p {
+  padding: 15px;
+  font-weight: 600;
 }
 
 #results-container {
@@ -204,16 +212,14 @@ select {
     z-index: 99;
     border: none;
     outline: none;
-    background-color: #fb5607;
+    background-color: var(--main-header-color);
     color: white;
     cursor: pointer;
     padding: 15px;
     border-radius: 100%;
   }
 
-  #scroll-to-top-button:hover {
-    background-color: #3A86FF;
-  }
+ 
 
   footer {
     text-align: center;
@@ -240,12 +246,13 @@ select {
     display: inline;
   }
 
-  #medium-text-logo {
-    height: 100px;
-    background-color: var(--secondary-color);
+  .header-center {    
     padding: 10px;
-    border-radius: 10px;
-   
+    margin: 0;    
+  }
+
+  #medium-text-logo {
+    max-height: 100px;   
   }
 
   header {
@@ -271,7 +278,6 @@ select {
   }
 
   aside {
-    /* background-color: #fb5607; */
     flex: 1 1 0;
     border-radius: 0 10px 10px 0;
   }
@@ -364,6 +370,11 @@ select {
     border-radius: 10px;
   }
 
+  #main-starting-content p {
+    padding: 25px;
+    font-weight: 700;
+  }
+
   #results-container {
     display: flex;
     flex-wrap: wrap;
@@ -401,6 +412,10 @@ select {
     font-weight: 600;
     font-size: 1.5em;
     padding: 3px;
+  }
+
+  #scroll-to-top-button:hover {
+    background-color: var(--secondary-color);
   }
 
   footer {
