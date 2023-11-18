@@ -26,6 +26,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - run: node --version
+      - run: npm --version
       - name: Checkout
         uses: actions/checkout@v3
       - name: Setup Pages
@@ -51,5 +53,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
+      - run: node --version
+      - run: npm --version
       - run: npm install
       - run: node index.js
