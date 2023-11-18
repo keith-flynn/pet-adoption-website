@@ -40,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
       - run: npm install
-      - run: node index.js 
+      - run: npm start 
 
   # Deployment job
   deploy:
@@ -56,4 +56,4 @@ jobs:
       - run: node --version
       - run: npm --version
       - run: npm install
-      - run: node index.js
+      - run: npm start
