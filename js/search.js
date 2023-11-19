@@ -254,6 +254,12 @@ function applySelectedCriteria() {
   }
 
   const searchField = document.getElementById("search-input").value;
+  // const validInputRegex = /^[a-zA-Z0-9\s]+$/;
+
+  // if (!validInputRegex.test(searchField)) {
+  //   alert("Invalid input. Please enter a valid search query.");
+  //   return;
+  // }
   if (searchField) {
     allSearchCriteria.push(`name=${searchField}`);
   }
