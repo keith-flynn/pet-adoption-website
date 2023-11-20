@@ -81,7 +81,7 @@ header {
   border-radius: 10px;
   margin: 10px;
   border: none;
-  text-decoration: none;
+  color: black;
 }
 
 #search-input {
@@ -138,6 +138,7 @@ select {
   border-radius: 10px;
   margin: 6px;
   border: none;
+  color: black;
 }
 
 .search-buttons:hover {
