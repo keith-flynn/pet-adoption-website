@@ -80,6 +80,8 @@ header {
   background-color: var(--secondary-color);
   border-radius: 10px;
   margin: 10px;
+  border: none;
+  text-decoration: none;
 }
 
 #search-input {
@@ -135,6 +137,7 @@ select {
   background-color: var(--secondary-color);
   border-radius: 10px;
   margin: 6px;
+  border: none;
 }
 
 .search-buttons:hover {
