@@ -1,5 +1,12 @@
 "use-strict";
-import { dogBreeds, catBreeds } from  "./dropdownArrays.js";
+import {
+  dogBreeds,
+  dogColors,
+  catBreeds,
+  catColors,
+  animalSizes,
+  animalAges,
+} from "./dropdownArrays.js";
 
 const apiURL = "http://localhost:5000/api/";
 
@@ -17,7 +24,7 @@ async function fetchData(url = apiURL) {
 // Clear Results button reloads page
 const refreshPage = () => {
   location.reload();
-}
+};
 document.getElementById("clearButton").addEventListener("click", refreshPage);
 
 // Search button event listeners
@@ -35,7 +42,7 @@ searchButton.addEventListener("click", async () => {
 });
 // For pressing Enter
 const searchInput = document.getElementById("search-input");
-searchInput.addEventListener("keypress", function(event) {
+searchInput.addEventListener("keypress", function (event) {
   // If the keypress is enter
   if (event.key === "Enter") {
     // Cancel the default action, if needed - IDK
@@ -43,7 +50,7 @@ searchInput.addEventListener("keypress", function(event) {
     // Trigger button element with a click
     searchButton.click();
   }
-}); 
+});
 
 // console log returned JSON object and call displayResults
 function returnResults(data) {
@@ -51,7 +58,9 @@ function returnResults(data) {
     // DEBUG
     console.log("API Response:", data);
 
-    const mainStartingContent = document.getElementById("main-starting-content");
+    const mainStartingContent = document.getElementById(
+      "main-starting-content"
+    );
     const resultsContainer = document.getElementById("results-container");
 
     // DEBUG
@@ -59,14 +68,12 @@ function returnResults(data) {
 
     // Change contents of main if any results are returned
     if (data.data.length > 0) {
-
       // Remove main-starting-content if it is still in DOM
       if (mainStartingContent) {
         mainStartingContent.remove();
       }
 
       displayResults(data);
-
     } else {
       // Message for no results returned
       resultsContainer.replaceChildren(); // Remove existing results
@@ -79,7 +86,7 @@ function returnResults(data) {
     if (numberReturned.hasChildNodes()) {
       numberReturned.replaceChildren();
     }
-    
+
     const resultAmount = document.createElement("h3");
     resultAmount.textContent = `Your search returned ${data.data.length} results...`;
     numberReturned.appendChild(resultAmount);
@@ -195,36 +202,60 @@ function createDescription(obj, label, separator = ", ") {
   }
 }
 
-// Generate select elements for breeds-dropdown
-function populateBreeds(animalType) {
-  
-  const selectElement = document.getElementById("breed-dropdown");
+const dropdowns = [
+  "breed-dropdown",
+  "size-dropdown",
+  "age-dropdown",
+  "gender-dropdown",
+  "color-dropdown",
+];
 
-  // Iterate through the array and create an option element for each breed
-  animalType.forEach((breed) => {
+const dropdownData = {
+  "breed-dropdown": dogBreeds,
+  "size-dropdown": animalSizes,
+  "age-dropdown": animalAges,
+  "gender-dropdown": ["Any", "Male", "Female"],
+  "color-dropdown": dogColors,
+};
+
+// Function to populate a dropdown based on its ID and data array
+function populateDropdown(dropdownId, data) {
+  const selectElement = document.getElementById(dropdownId);
+
+  // Clear existing options
+  selectElement.innerHTML = "";
+
+  // Iterate through the array and create an option element for each item
+  data.forEach((item) => {
     const optionElement = document.createElement("option");
-    optionElement.value = breed.toLowerCase(); // Set the value to lowercase for consistency
-    optionElement.textContent = breed;
+    optionElement.value = item.toLowerCase(); // Set the value to lowercase for consistency
+    optionElement.textContent = item;
     selectElement.appendChild(optionElement);
   });
 }
 
-// DEBUG - IIFE or separate js file
-populateBreeds(dogBreeds);
+// Iterate through the dropdownData object and populate each dropdown
+for (const dropdownId in dropdownData) {
+  if (Object.hasOwnProperty.call(dropdownData, dropdownId)) {
+    const data = dropdownData[dropdownId];
+    populateDropdown(dropdownId, data);
+  }
+}
 
 function applySelectedCriteria() {
   const emptySearchURL = "http://localhost:5000/api/search?";
   //const emptySearchURL = "https://naptap.replit.app/api/search?";
   let allSearchCriteria = [];
 
-  const dropdowns = ["breed-dropdown", "size-dropdown", "age-dropdown", "gender-dropdown", "color-dropdown"];
-
   dropdowns.forEach((dropdownId) => {
     const dropdown = document.getElementById(dropdownId);
     const selectedValue = dropdown.value;
-    
-    if (selectedValue !== "select") {
-      const criteria = `${dropdownId.replace("-dropdown", "")}=${selectedValue}`;
+
+    if (selectedValue.toLowerCase() !== "any" && selectedValue !== "select") {
+      const criteria = `${dropdownId.replace(
+        "-dropdown",
+        ""
+      )}=${selectedValue}`;
       allSearchCriteria.push(criteria);
     }
   });
@@ -239,17 +270,21 @@ function applySelectedCriteria() {
   return joinedSearchURL;
 }
 
-
 // Scroll to top buttion functionality
 let scrollToTopButton = document.getElementById("scroll-to-top-button");
 
 scrollToTopButton.addEventListener("click", topFunction);
 
 // When the user scrolls down 250px show the button
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () {
+  scrollFunction();
+};
 
 function scrollFunction() {
-  if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+  if (
+    document.body.scrollTop > 250 ||
+    document.documentElement.scrollTop > 250
+  ) {
     scrollToTopButton.style.display = "block";
   } else {
     scrollToTopButton.style.display = "none";
@@ -260,20 +295,21 @@ function scrollFunction() {
 function topFunction() {
   window.scrollTo({
     top: 0,
-    behavior: "smooth"
+    behavior: "smooth",
   });
 }
 
 // Expand and Collapse button
-const collapsibleButtons = document.getElementsByClassName("collapsible-button");
+const collapsibleButtons =
+  document.getElementsByClassName("collapsible-button");
 
 for (let i = 0; i < collapsibleButtons.length; i++) {
-  collapsibleButtons[i].addEventListener("click", function() {
+  collapsibleButtons[i].addEventListener("click", function () {
     this.classList.toggle("active");
 
     // Toggle the icon
     const iconElement = this.querySelector("i");
-    
+
     iconElement.classList.toggle("fa-angles-down");
     iconElement.classList.toggle("fa-angles-up");
 
