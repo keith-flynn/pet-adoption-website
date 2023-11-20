@@ -212,62 +212,33 @@ function populateBreeds(animalType) {
 // DEBUG - IIFE or separate js file
 populateBreeds(dogBreeds);
 
-// DEBUG - iterate this
 function applySelectedCriteria() {
-  //const emptySearchURL = "https://naptap.replit.app/api/search?";
   const emptySearchURL = "http://localhost:5000/api/search?";
+  //const emptySearchURL = "https://naptap.replit.app/api/search?";
   let allSearchCriteria = [];
 
-  const breedDropdown = document.getElementById("breed-dropdown");
-  const breedSelected =
-    breedDropdown.value === "select" ? "" : "breed=" + `${breedDropdown.value}`;
-  allSearchCriteria.push(breedSelected);
+  const dropdowns = ["breed-dropdown", "size-dropdown", "age-dropdown", "gender-dropdown", "color-dropdown"];
 
-  const sizeDropdown = document.getElementById("size-dropdown");
-  const sizeSelected =
-    sizeDropdown.value === "select" ? "" : "size=" + `${sizeDropdown.value}`;
-  if (sizeSelected) {
-    allSearchCriteria.push(sizeSelected);
-  }
-
-  const ageDropdown = document.getElementById("age-dropdown");
-  const ageSelected =
-    ageDropdown.value === "select" ? "" : "age=" + `${ageDropdown.value}`;
-  if (ageSelected) {
-    allSearchCriteria.push(ageSelected);
-  }
-
-  const genderDropdown = document.getElementById("gender-dropdown");
-  const genderSelected =
-    genderDropdown.value === "select"
-      ? ""
-      : "gender=" + `${genderDropdown.value}`;
-  if (genderSelected) {
-    allSearchCriteria.push(genderSelected);
-  }
-
-  const colorDropdown = document.getElementById("color-dropdown");
-  const colorSelected =
-    colorDropdown.value === "select" ? "" : "color=" + `${colorDropdown.value}`;
-  if (colorSelected) {
-    allSearchCriteria.push(colorSelected);
-  }
+  dropdowns.forEach((dropdownId) => {
+    const dropdown = document.getElementById(dropdownId);
+    const selectedValue = dropdown.value;
+    
+    if (selectedValue !== "select") {
+      const criteria = `${dropdownId.replace("-dropdown", "")}=${selectedValue}`;
+      allSearchCriteria.push(criteria);
+    }
+  });
 
   const searchField = document.getElementById("search-input").value;
-  // const validInputRegex = /^[a-zA-Z0-9\s]+$/;
-
-  // if (!validInputRegex.test(searchField)) {
-  //   alert("Invalid input. Please enter a valid search query.");
-  //   return;
-  // }
   if (searchField) {
     allSearchCriteria.push(`name=${searchField}`);
   }
 
-  let joinedSearchURL = emptySearchURL + allSearchCriteria.join("&");
+  const joinedSearchURL = emptySearchURL + allSearchCriteria.join("&");
 
   return joinedSearchURL;
 }
+
 
 // Scroll to top buttion functionality
 let scrollToTopButton = document.getElementById("scroll-to-top-button");
