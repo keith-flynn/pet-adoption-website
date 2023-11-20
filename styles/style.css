@@ -24,18 +24,21 @@ body {
 }
 
 a {
-  color: var(--main-header-color);
-  text-decoration: none;
+  color: #eaebb0;
 }
 
 a:hover {
-  color: var(--search-background-color);
+  color: var(--background-color);
 }
 
 h2,
 h3,
 h4 {
   text-align: center;
+}
+
+h3 {
+  color: var(--main-background-color);
 }
 
 header {
@@ -106,6 +109,7 @@ label {
   justify-content: center;
   margin: 0 auto;
   font-weight: 600;
+  color: var(--main-background-color);
 }
 
 select {
@@ -146,7 +150,7 @@ select {
 }
 
 #main {
-  background-image: url("../images/clinic.jpg");
+  background-image: url("../images/clinic.webp");
   background-size: cover;
 }
 
@@ -169,9 +173,14 @@ select {
   padding: 20px;
 }
 
+#main-starting-content h2 {
+  color: var(--main-background-color);
+}
+
 #main-starting-content p {
   padding: 15px;
   font-weight: 600;
+  color: var(--main-background-color);
 }
 
 #results-container {
@@ -232,7 +241,18 @@ select {
 
 footer {
   text-align: center;
-  background-color: var(--secondary-color);
+  background-color: var(--main-header-color);
+  border: 1px solid black;
+  padding: 3px;
+}
+
+footer h2 {
+  font-size: 1em;
+  color: var(--main-background-color);
+}
+
+footer p {
+  color: var(--main-background-color);
 }
 
 .fa-arrow-up-right-from-square {
@@ -420,8 +440,6 @@ footer {
 
   footer {
     text-align: center;
-    background-color: var(--secondary-color);
-    border: none;
-    padding: 15px;
+    padding: 7px;
   }
 }
