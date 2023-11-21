@@ -33,7 +33,7 @@ const searchButton = document.getElementById("searchButton");
 searchButton.addEventListener("click", async () => {
   // Overlay for loading
   const loadingOverlay = document.getElementById("loading-overlay");
-  loadingOverlay.style.display = "flex"; // Display the loading overlay at the start of the fetch
+  loadingOverlay.style.display = "flex"; // Display overlay becomes visible at the start of the fetch
 
   let joinedSearchURL = applySelectedCriteria();
 
@@ -248,6 +248,12 @@ for (const dropdownId in dropdownData) {
   }
 }
 
+// Regular expression to match only alphanumeric characters
+function isAlphanumeric(input) {  
+  const alphanumericRegex = /^[a-zA-Z0-9\s]+$/;
+  return alphanumericRegex.test(input);
+}
+
 function applySelectedCriteria() {
   const emptySearchURL = "http://localhost:5000/api/search?";
   //const emptySearchURL = "https://naptap.replit.app/api/search?";
@@ -267,8 +273,12 @@ function applySelectedCriteria() {
   });
 
   const searchField = document.getElementById("search-input").value;
-  if (searchField) {
+  if (searchField && isAlphanumeric(searchField)) {
     allSearchCriteria.push(`name=${searchField}`);
+  } else if (searchField) {
+    // Handle invalid input (e.g., show an alert)
+    alert("Invalid input. Please enter a valid search query.");
+    return;
   }
 
   const joinedSearchURL = emptySearchURL + allSearchCriteria.join("&");
