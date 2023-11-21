@@ -276,8 +276,8 @@ function applySelectedCriteria() {
   if (searchField && isAlphanumeric(searchField)) {
     allSearchCriteria.push(`name=${searchField}`);
   } else if (searchField) {
-    // Handle invalid input (e.g., show an alert)
-    alert("Invalid input. Please enter a valid search query.");
+    // Handle invalid input
+    showModal('Invalid input. Please enter a valid search query.');
     return;
   }
 
@@ -336,4 +336,26 @@ for (let i = 0; i < collapsibleButtons.length; i++) {
       content.style.display = "flex";
     }
   });
+}
+
+// Invalid input modal popup
+function showModal(message) {
+  const modal = document.getElementById('myModal');
+  const modalMessage = document.getElementById('modal-message');
+
+  modalMessage.textContent = message;
+  modal.style.display = 'block';
+
+  // Close the modal if the user clicks anywhere outside of it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  };
+
+  // Close the modal if the user clicks the close button
+  const closeButton = document.getElementsByClassName('close')[0];
+  closeButton.onclick = function () {
+    modal.style.display = 'none';
+  };
 }
