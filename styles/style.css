@@ -232,8 +232,8 @@ select {
   z-index: 99;
   border: none;
   outline: none;
-  background-color: var(--main-header-color);
-  color: white;
+  background-color: var(--secondary-color);
+  color: var(--main-background-color);
   cursor: pointer;
   padding: 15px;
   border-radius: 100%;
@@ -496,7 +496,7 @@ footer p {
   }
 
   #scroll-to-top-button:hover {
-    background-color: var(--secondary-color);
+    background-color: var(--search-background-color);
   }
 
   footer {
