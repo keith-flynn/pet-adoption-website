@@ -1,6 +1,7 @@
-'use-strict';
+"use-strict";
 
 export const dogBreeds = [
+  "Any",
   "Akbash",
   "Akita",
   "Alaskan Malamute",
@@ -150,9 +151,29 @@ export const dogBreeds = [
   "Wirehaired Terrier",
   "Yellow Labrador Retriever",
   "Yorkshire Terrier",
-]
+];
+
+export const dogColors = [
+  "Any",
+  "Apricot / Beige",
+  "Bicolor",
+  "Black",
+  "Brindle",
+  "Brown / Chocolate",
+  "Golden",
+  "Gray / Blue / Silver",
+  "Harlequin",
+  "Merle (Blue)",
+  "Merle (Red)",
+  "Red / Chestnut / Orange",
+  "Sable",
+  "Tricolor (Brown, Black, & White)",
+  "White / Cream",
+  "Yellow / Tan / Blond / Fawn",
+];
 
 export const catBreeds = [
+  "Any",
   "Abyssinian",
   "American Bobtail",
   "American Curl",
@@ -205,6 +226,55 @@ export const catBreeds = [
   "Torbie",
   "Tortoiseshell",
   "Turkish Van",
-  "Tuxedo"
+  "Tuxedo",
+];
+
+export const catColors = [
+  "Any",
+  "Black",
+  "Black & White / Tuxedo",
+  "Blue Cream",
+  "Blue Point",
+  "Brown / Chocolate",
+  "Buff & White",
+  "Buff / Tan / Fawn",
+  "Calico",
+  "Chocolate Point",
+  "Cream / Ivory",
+  "Cream Point",
+  "Dilute Calico",
+  "Dilute Tortoiseshell",
+  "Flame Point",
+  "Gray & White",
+  "Gray / Blue / Silver",
+  "Lilac Point",
+  "Orange & White",
+  "Orange / Red",
+  "Seal Point",
+  "Smoke",
+  "Tabby (Brown / Chocolate)",
+  "Tabby (Buff / Tan / Fawn)",
+  "Tabby (Gray / Blue / Silver)",
+  "Tabby (Leopard / Spotted)",
+  "Tabby (Orange / Red)",
+  "Tabby (Tiger Striped)",
+  "Torbie",
+  "Tortoiseshell",
+  "White",
+];
+
+export const animalSizes = [
+  "Any",
+  "Small",
+  "Medium",
+  "Large",
+  "Extra Large"
 ]
 
+export const animalAges = [
+  "Any",
+  "Baby",
+  "Young",
+  "Adult",
+  "Senior"
+]
