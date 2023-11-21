@@ -31,13 +31,19 @@ document.getElementById("clearButton").addEventListener("click", refreshPage);
 const searchButton = document.getElementById("searchButton");
 // For clicks
 searchButton.addEventListener("click", async () => {
+  // Overlay for loading
+  const loadingOverlay = document.getElementById("loading-overlay");
+  loadingOverlay.style.display = "flex"; // Display the loading overlay at the start of the fetch
+
   let joinedSearchURL = applySelectedCriteria();
 
   try {
     const data = await fetchData(joinedSearchURL);
     returnResults(data);
+    loadingOverlay.style.display = "none"; // Hide loading overlay after fetching and displaying results
   } catch (error) {
     console.error(error);
+    loadingOverlay.style.display = "none"; // Hide loading overlay in case of error
   }
 });
 // For pressing Enter

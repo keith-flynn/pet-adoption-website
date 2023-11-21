@@ -259,6 +259,31 @@ footer p {
   transform: scale(0.5);
 }
 
+#loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(50, 130, 184, 0.4); /* Opacity */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* High level */
+}
+
+#loading-spinner {
+  font-size: 10em;
+  color: var(--main-background-color);
+  animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
 @media only screen and (min-width: 768px) {
   
 
