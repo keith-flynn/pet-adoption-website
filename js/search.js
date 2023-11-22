@@ -9,6 +9,7 @@ import {
 } from "./dropdownArrays.js";
 
 const apiURL = "http://localhost:5000/api/";
+let searchShouldProceed = true;
 
 // Fetch request
 async function fetchData(url = apiURL) {
@@ -26,37 +27,6 @@ const refreshPage = () => {
   location.reload();
 };
 document.getElementById("clearButton").addEventListener("click", refreshPage);
-
-// Search button event listeners
-const searchButton = document.getElementById("searchButton");
-// For clicks
-searchButton.addEventListener("click", async () => {
-  // Overlay for loading
-  const loadingOverlay = document.getElementById("loading-overlay");
-  loadingOverlay.style.display = "flex"; // Display the loading overlay at the start of the fetch
-
-  let joinedSearchURL = applySelectedCriteria();
-
-  try {
-    const data = await fetchData(joinedSearchURL);
-    returnResults(data);
-    loadingOverlay.style.display = "none"; // Hide loading overlay after fetching and displaying results
-  } catch (error) {
-    console.error(error);
-    loadingOverlay.style.display = "none"; // Hide loading overlay in case of error
-  }
-});
-// For pressing Enter
-const searchInput = document.getElementById("search-input");
-searchInput.addEventListener("keypress", function (event) {
-  // If the keypress is enter
-  if (event.key === "Enter") {
-    // Cancel the default action, if needed - IDK
-    event.preventDefault();
-    // Trigger button element with a click
-    searchButton.click();
-  }
-});
 
 // console log returned JSON object and call displayResults
 function returnResults(data) {
@@ -119,8 +89,9 @@ function displayResults(data) {
     const photoDiv = document.createElement("div");
     photoDiv.classList.add("return-photo-div");
     const photo = document.createElement("img");
-    if (animal.photos && animal.photos.length > 0) {
-      const firstPhoto = animal.photos[0];
+    // File structure of photos in database necessitates a couple of checks first
+    if (animal.primary_photo_cropped) {
+      const firstPhoto = animal.primary_photo_cropped;
       if (firstPhoto.small) {
         photo.src = firstPhoto.medium;
       } else {
@@ -248,6 +219,12 @@ for (const dropdownId in dropdownData) {
   }
 }
 
+// Regular expression to match only alphanumeric characters
+function isAlphanumeric(input) {  
+  const alphanumericRegex = /^[a-zA-Z0-9\s]+$/;
+  return alphanumericRegex.test(input);
+}
+
 function applySelectedCriteria() {
   //const emptySearchURL = "http://localhost:5000/api/search?";
   const emptySearchURL = "https://naptap.replit.app/api/search?";
@@ -266,11 +243,18 @@ function applySelectedCriteria() {
     }
   });
 
-  const searchField = document.getElementById("search-input").value;
+  const searchField = document.getElementById("search-input").value.trim();
   if (searchField) {
-    allSearchCriteria.push(`name=${searchField}`);
+    if (isAlphanumeric(searchField)) {
+      // Only set searchShouldProceed to true if the search field is not empty and is alphanumeric
+      searchShouldProceed = true;
+      allSearchCriteria.push(`name=${searchField}`);
+    } else {
+      // Display a modal or some other user-friendly notification for invalid input
+      showModal("Invalid input. Please enter a valid search query.");
+      searchShouldProceed = false;
+    }
   }
-
   const joinedSearchURL = emptySearchURL + allSearchCriteria.join("&");
 
   return joinedSearchURL;
@@ -278,13 +262,6 @@ function applySelectedCriteria() {
 
 // Scroll to top buttion functionality
 let scrollToTopButton = document.getElementById("scroll-to-top-button");
-
-scrollToTopButton.addEventListener("click", topFunction);
-
-// When the user scrolls down 250px show the button
-window.onscroll = function () {
-  scrollFunction();
-};
 
 function scrollFunction() {
   if (
@@ -327,3 +304,76 @@ for (let i = 0; i < collapsibleButtons.length; i++) {
     }
   });
 }
+
+// Invalid input modal popup
+function showModal(message) {
+  const modal = document.getElementById('myModal');
+  const modalMessage = document.getElementById('modal-message');
+
+  modalMessage.textContent = message;
+  modal.style.display = 'block';
+
+  // Close the modal if the user clicks anywhere outside of it
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = 'none';
+    }
+  };
+
+  // Close the modal if the user clicks the close button
+  const closeButton = document.getElementsByClassName('close')[0];
+  closeButton.onclick = function () {
+    modal.style.display = 'none';
+  };
+}
+
+// New home for event listeners
+// Search button event listeners
+const searchButton = document.getElementById("searchButton");
+// For clicks
+searchButton.addEventListener("click", async () => {
+  // Overlay for loading
+  const loadingOverlay = document.getElementById("loading-overlay");
+  loadingOverlay.style.display = "flex"; // Display overlay becomes visible at the start of the fetch
+
+  // Set to true by default at button click
+  searchShouldProceed = true;
+  
+  try {
+    let joinedSearchURL = applySelectedCriteria();
+
+    if (!searchShouldProceed) {
+      loadingOverlay.style.display = "none"; // Hide loading overlay if the search should not proceed
+      return; // Stop the search
+    }
+
+    const data = await fetchData(joinedSearchURL);
+    returnResults(data);
+    //loadingOverlay.style.display = "none"; // Hide loading overlay after fetching and displaying results
+  } catch (error) {
+    console.error(error);
+    //loadingOverlay.style.display = "none"; // Hide loading overlay in case of error
+  }
+
+  loadingOverlay.style.display = "none"; // Hide loading overlay after resolution
+
+});
+// For pressing Enter
+const searchInput = document.getElementById("search-input");
+searchInput.addEventListener("keypress", function (event) {
+  // If the keypress is enter
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed - IDK
+    event.preventDefault();
+    // Trigger button element with a click
+    searchButton.click();
+  }
+});
+
+// Scroll to top listener
+scrollToTopButton.addEventListener("click", topFunction);
+
+// When the user scrolls down 250px show the button
+window.onscroll = function () {
+  scrollFunction();
+};
