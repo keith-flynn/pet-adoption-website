@@ -89,8 +89,9 @@ function displayResults(data) {
     const photoDiv = document.createElement("div");
     photoDiv.classList.add("return-photo-div");
     const photo = document.createElement("img");
-    if (animal.photos && animal.photos.length > 0) {
-      const firstPhoto = animal.photos[0];
+    // File structure of photos in database necessitates a couple of checks first
+    if (animal.primary_photo_cropped) {
+      const firstPhoto = animal.primary_photo_cropped;
       if (firstPhoto.small) {
         photo.src = firstPhoto.medium;
       } else {

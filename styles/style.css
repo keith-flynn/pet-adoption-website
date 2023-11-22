@@ -186,41 +186,58 @@ select {
 #results-container {
   display: flex;
   flex-wrap: wrap;
-  margin: 15px;
-  gap: 15px;
+  margin: 10px;
+  gap: 10px;
   justify-content: center;
 }
 
 .return-animal-container {
-  flex: 1 0 200px;
+  flex: 1 1 0;
   background-color: var(--main-background-color);
   display: flex;
   flex-direction: column;
+  max-height: 300px;
+  /* min-height: 300px; */
   max-width: 175px;
+  min-width: 150px;
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
-  /* padding: 15px; */
 }
 
-.return-animal-container,
-.return-animal-container p {
-  border: 1px solid black;
+.return-photo-div {
+  display: flex;
+  flex: 1;
+  padding: 3px;
 }
 
 #results-container img {
-  max-width: 115px;
-  max-height: 115px;
-  padding: 15px;
+  max-height: 150px;
+  max-width: 150px;
+  border-radius: 10px;
 }
 
 .all-animal-text {
-  width: 100%;
+  flex: 1;
+  text-align: center;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+ /* Hide scrollbar for Chrome, Safari and Opera */
+ .all-animal-text::-webkit-scrollbar {
+  display: none;
 }
 
 .name-text {
   font-weight: 600;
   font-size: 1.5em;
+  padding: 3px;
+}
+
+.animal-stats {
+  font-size: 0.9em;
   padding: 3px;
 }
 
@@ -458,41 +475,36 @@ footer p {
   }
 
   #results-container {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     margin: 15px;
     gap: 15px;
-    justify-content: center;
+    justify-content: center; */
   }
 
   .return-animal-container {
-    width: 150px;
+    /* width: 150px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
     /* padding: 15px; */
   }
 
-  .return-animal-container,
-  .return-animal-container p {
-    border: 1px solid black;
-  }
-
   #results-container img {
-    max-width: 145px;
+    /* max-width: 145px;
     max-height: 180px;
-    padding: 15px;
+    padding: 15px; */
   }
 
   .all-animal-text {
-    width: 100%;
+    /* width: 100%; */
   }
 
   .name-text {
-    font-weight: 600;
+    /* font-weight: 600;
     font-size: 1.5em;
-    padding: 3px;
+    padding: 3px; */
   }
 
   #scroll-to-top-button:hover {
