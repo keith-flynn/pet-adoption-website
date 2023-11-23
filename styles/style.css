@@ -167,10 +167,10 @@ select {
 
 #main-starting-logo {
   background-color: var(--secondary-color);
-  max-width: 275px;
+  max-width: 250px;
   border-radius: 10px;
   margin: 25px;
-  padding: 20px;
+  padding: 10px;
 }
 
 #main-starting-content h2 {
@@ -196,10 +196,10 @@ select {
   background-color: var(--main-background-color);
   display: flex;
   flex-direction: column;
-  max-height: 300px;
+  height: 300px;
   /* min-height: 300px; */
-  max-width: 175px;
-  min-width: 150px;
+  max-width: 155px;
+  min-width: 155px;
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
@@ -209,15 +209,19 @@ select {
   display: flex;
   flex: 1;
   padding: 3px;
+  
 }
 
 #results-container img {
   max-height: 150px;
+  min-height: 150px;
   max-width: 150px;
+  min-width: 150px;
   border-radius: 10px;
+  object-fit: cover; /* Zoom if image doesn't fill container */
 }
 
-.all-animal-text {
+.all-animal-text {  
   flex: 1;
   text-align: center;
   overflow-y: scroll;
@@ -463,10 +467,7 @@ footer p {
 
   #main-starting-logo {
     max-width: 600px;
-    margin: 25px;
-    background-color: var(--secondary-color);
     padding: 25px;
-    border-radius: 10px;
   }
 
   #main-starting-content p {
@@ -474,41 +475,45 @@ footer p {
     font-weight: 700;
   }
 
-  #results-container {
-    /* display: flex;
-    flex-wrap: wrap;
-    margin: 15px;
-    gap: 15px;
-    justify-content: center; */
+  .return-animal-container {
+    height: 325px;
+    margin: 12px;
+    max-width: 230px;
+    min-width: 230px;
   }
 
-  .return-animal-container {
-    /* width: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center; */
-    /* padding: 15px; */
+  .return-photo-div {
+    flex: 1;
   }
 
   #results-container img {
-    /* max-width: 145px;
-    max-height: 180px;
-    padding: 15px; */
+    max-height: 225px;
+    min-height: 225px;
+    max-width: 225px;
+    min-width: 225px;
   }
 
   .all-animal-text {
-    /* width: 100%; */
+    display: flex; /* feelin cute might delete later */
+    flex: 1;
   }
 
   .name-text {
-    /* font-weight: 600;
-    font-size: 1.5em;
-    padding: 3px; */
+    font-size: 1.3em;
+  }
+
+  .animal-stats {
+    font-size: 1em;
+    padding: 3px;
+  }
+
+  #scroll-to-top-button {
+    border: 1px solid var(--main-background-color);
   }
 
   #scroll-to-top-button:hover {
     background-color: var(--search-background-color);
+    border: none;
   }
 
   footer {
