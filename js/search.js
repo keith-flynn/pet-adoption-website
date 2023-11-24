@@ -149,6 +149,22 @@ function displayResults(data) {
 
     animalTextDiv.appendChild(animalStatsDiv);
     returnAnimalDiv.appendChild(animalTextDiv);
+
+    // Create and append their petfinder link opened in another window
+    const linkToPFDiv = document.createElement("div");
+    linkToPFDiv.classList.add("link-to-pf");
+    linkToPFDiv.innerHTML = `<a href="${animal.url}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
+    returnAnimalDiv.appendChild(linkToPFDiv);
+
+    // Create and append the close button
+    const closeButtonDiv = document.createElement("div");
+    closeButtonDiv.classList.add("close-button");
+    closeButtonDiv.innerHTML = '<i class="fa-regular fa-circle-xmark"></i>'; // This is the 'X' symbol
+    closeButtonDiv.addEventListener("click", () => {
+      returnAnimalDiv.remove(); // Remove the animal container on close button click
+    });
+    returnAnimalDiv.appendChild(closeButtonDiv);
+
     resultsContainer.appendChild(returnAnimalDiv);
   });
 }
@@ -267,7 +283,7 @@ function isAlphanumeric(input) {
 function applySelectedCriteria() {
 
   const emptySearchURL = `http://localhost:5000/api/search?type=${petType}&`;
-  //const emptySearchURL = "https://naptap.replit.app/api/search?";
+  //const emptySearchURL = `https://naptap.replit.app/api/search?type=${petType}&`;
 
   let allSearchCriteria = [];
 
