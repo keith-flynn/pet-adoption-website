@@ -230,8 +230,14 @@ function populateDropdown(dropdownId, data) {
 // Function to set the current pet type (dog or cat)
 function setPetType(type) {
   petType = type;
+  localStorage.setItem('petType', type);  // Save to local storage
   // Adjust dropdowns based on current pet type
   adjustDropdowns();
+}
+
+// Function to get the pet type from local storage
+function getPetType() {
+  return localStorage.getItem('petType') || 'dog';  // Default to 'dog' if not found
 }
 
 // Function to adjust dropdowns based on the current pet type
@@ -244,7 +250,13 @@ function adjustDropdowns() {
   }
 }
 
+// On page load, set the petType from local storage
+petType = getPetType();
 adjustDropdowns();
+
+// Set the checkbox state based on the petType
+const petToggleCheckbox = document.getElementById('toggle-checkbox');
+petToggleCheckbox.checked = petType === 'cat';
 
 // Regular expression to match only alphanumeric characters
 function isAlphanumeric(input) {  
