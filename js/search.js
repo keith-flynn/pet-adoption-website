@@ -396,24 +396,24 @@ searchButton.addEventListener("click", async () => {
   // Set to true by default at button click
   searchShouldProceed = true;
   
-  try {
-    let joinedSearchURL = applySelectedCriteria();
+   // Add an artificial loading delay
+   setTimeout(async () => {
+    try {
+      let joinedSearchURL = applySelectedCriteria();
 
-    if (!searchShouldProceed) {
-      loadingOverlay.style.display = "none"; // Hide loading overlay if the search should not proceed
-      return; // Stop the search
+      if (!searchShouldProceed) {
+        loadingOverlay.style.display = "none"; // Hide loading overlay if the search should not proceed
+        return; // Stop the search
+      }
+
+      const data = await fetchData(joinedSearchURL);
+      returnResults(data);
+    } catch (error) {
+      console.error(error);
     }
 
-    const data = await fetchData(joinedSearchURL);
-    returnResults(data);
-    //loadingOverlay.style.display = "none"; // Hide loading overlay after fetching and displaying results
-  } catch (error) {
-    console.error(error);
-    //loadingOverlay.style.display = "none"; // Hide loading overlay in case of error
-  }
-
-  loadingOverlay.style.display = "none"; // Hide loading overlay after resolution
-
+    loadingOverlay.style.display = "none"; // Hide loading overlay after resolution
+  }, 750); // Adjust the delay time in miliseconds
 });
 // For pressing Enter
 const searchInput = document.getElementById("search-input");
