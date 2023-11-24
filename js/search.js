@@ -149,6 +149,22 @@ function displayResults(data) {
 
     animalTextDiv.appendChild(animalStatsDiv);
     returnAnimalDiv.appendChild(animalTextDiv);
+
+    // Create and append their petfinder link opened in another window
+    const linkToPFDiv = document.createElement("div");
+    linkToPFDiv.classList.add("link-to-pf");
+    linkToPFDiv.innerHTML = `<a href="${animal.url}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>`;
+    returnAnimalDiv.appendChild(linkToPFDiv);
+
+    // Create and append the close button
+    const closeButtonDiv = document.createElement("div");
+    closeButtonDiv.classList.add("close-button");
+    closeButtonDiv.innerHTML = '<i class="fa-regular fa-circle-xmark"></i>'; // This is the 'X' symbol
+    closeButtonDiv.addEventListener("click", () => {
+      returnAnimalDiv.remove(); // Remove the animal container on close button click
+    });
+    returnAnimalDiv.appendChild(closeButtonDiv);
+
     resultsContainer.appendChild(returnAnimalDiv);
   });
 }
@@ -230,8 +246,14 @@ function populateDropdown(dropdownId, data) {
 // Function to set the current pet type (dog or cat)
 function setPetType(type) {
   petType = type;
+  localStorage.setItem('petType', type);  // Save to local storage
   // Adjust dropdowns based on current pet type
   adjustDropdowns();
+}
+
+// Function to get the pet type from local storage
+function getPetType() {
+  return localStorage.getItem('petType') || 'dog';  // Default to 'dog' if not found
 }
 
 // Function to adjust dropdowns based on the current pet type
@@ -244,7 +266,13 @@ function adjustDropdowns() {
   }
 }
 
+// On page load, set the petType from local storage
+petType = getPetType();
 adjustDropdowns();
+
+// Set the checkbox state based on the petType
+const petToggleCheckbox = document.getElementById('toggle-checkbox');
+petToggleCheckbox.checked = petType === 'cat';
 
 // Regular expression to match only alphanumeric characters
 function isAlphanumeric(input) {  
@@ -252,9 +280,15 @@ function isAlphanumeric(input) {
   return alphanumericRegex.test(input);
 }
 
+// Gather input from dropdowns (or ignore empty) to form the API URL
 function applySelectedCriteria() {
-  //const emptySearchURL = `http://localhost:5000/api/search?type=${petType}&`;
-  const emptySearchURL = `https://naptap.replit.app/api/search?type=${petType}&`;
+
+
+  //const emptySearchURL = `http://localhost:5000/api/search?type=${petType}&`; // Main branch (dev)
+  const emptySearchURL = `https://naptap.replit.app/api/search?type=${petType}&`; // deploy-replit branch
+
+
+
   let allSearchCriteria = [];
 
   dropdowns.forEach((dropdownId) => {
@@ -332,7 +366,7 @@ for (let i = 0; i < collapsibleButtons.length; i++) {
   });
 }
 
-// Invalid input modal popup
+// Invalid input modal popup for Search by Name
 function showModal(message) {
   const modal = document.getElementById('myModal');
   const modalMessage = document.getElementById('modal-message');
@@ -366,24 +400,24 @@ searchButton.addEventListener("click", async () => {
   // Set to true by default at button click
   searchShouldProceed = true;
   
-  try {
-    let joinedSearchURL = applySelectedCriteria();
+   // Add an artificial loading delay
+   setTimeout(async () => {
+    try {
+      let joinedSearchURL = applySelectedCriteria();
 
-    if (!searchShouldProceed) {
-      loadingOverlay.style.display = "none"; // Hide loading overlay if the search should not proceed
-      return; // Stop the search
+      if (!searchShouldProceed) {
+        loadingOverlay.style.display = "none"; // Hide loading overlay if the search should not proceed
+        return; // Stop the search
+      }
+
+      const data = await fetchData(joinedSearchURL);
+      returnResults(data);
+    } catch (error) {
+      console.error(error);
     }
 
-    const data = await fetchData(joinedSearchURL);
-    returnResults(data);
-    //loadingOverlay.style.display = "none"; // Hide loading overlay after fetching and displaying results
-  } catch (error) {
-    console.error(error);
-    //loadingOverlay.style.display = "none"; // Hide loading overlay in case of error
-  }
-
-  loadingOverlay.style.display = "none"; // Hide loading overlay after resolution
-
+    loadingOverlay.style.display = "none"; // Hide loading overlay after resolution
+  }, 750); // Adjust the delay time in miliseconds
 });
 // For pressing Enter
 const searchInput = document.getElementById("search-input");

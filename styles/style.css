@@ -3,6 +3,7 @@
   --search-background-color: #0f4c75;
   --secondary-color: #3282b8;
   --main-background-color: #bbe1fa;
+  --accent-color: #eaebb0;
 }
 
 * {
@@ -24,7 +25,7 @@ body {
 }
 
 a {
-  color: #eaebb0;
+  color: var(--accent-color);
 }
 
 a:hover {
@@ -275,6 +276,37 @@ select {
   justify-content: space-between;
   align-items: center;
   border-radius: 10px;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  opacity: 0.9;
+  color: var(--main-background-color);
+  background-color: var(--main-header-color);
+  border-radius: 100%;
+  height: 1em;
+  width: 1em;
+  text-align: center;
+  padding-left: 2px; /* This is weird and I hate it but it is displayed evenly */
+  padding-top: 1px;
+  padding-right: 1px;
+  padding-bottom: 3px;
+}
+
+.link-to-pf {
+  position: absolute;
+  bottom: 5px;
+  right: 7px;
+  color: var(--accent-color);
+  background-color: var(--main-header-color);
+  border-radius: 100%;
+  height: 1em;
+  width: 1em;
+  text-align: center;
 }
 
 .return-photo-div {
@@ -571,6 +603,11 @@ footer p {
     max-width: 230px;
     min-width: 230px;
   }
+
+  .link-to-pf:hover {
+    color: var(--header-background-color);
+    background-color: var(--secondary-color);
+  } 
 
   .return-photo-div {
     flex: 1;
