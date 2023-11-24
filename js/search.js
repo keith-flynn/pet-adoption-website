@@ -96,13 +96,15 @@ function displayResults(data) {
         photo.src = firstPhoto.medium;
       } else {
         // No 'small' property in the photo, load default image
-        const defaultImageURL = "../images/small-circle-transparent.png";
+        const defaultImageURL = "../images/no-photo.webp";
         photo.src = defaultImageURL;
+        photoDiv.style.backgroundColor = "#0f4c75";
       }
     } else {
       // No photos available, load a default image
-      const defaultImageURL = "../images/small-circle-transparent.png";
+      const defaultImageURL = "../images/no-photo.webp";
       photo.src = defaultImageURL;
+      photoDiv.style.backgroundColor = "#0f4c75";
     }
     // Photo
     photo.alt = animal.name;
