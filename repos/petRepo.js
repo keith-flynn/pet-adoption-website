@@ -40,6 +40,12 @@ let petRepo = {
           pets = pets.filter(
             (p) =>
               (searchObject.id ? p.id == searchObject.id : true) &&
+              (searchObject.type
+                ? p.type
+                    .toLowerCase()
+                    .indexOf(searchObject.type.toLowerCase()) >= 0
+                : true)
+                &&
               (searchObject.breed
                 ? p.breeds.primary
                     .toLowerCase()
