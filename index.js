@@ -33,6 +33,7 @@ router.get('/', function (req, res, next) {
 router.get('/search', function (req, res, next) {
   let searchObject = {
     "id": req.query.id,
+    "type": req.query.type,
     "breed": req.query.breed,
     "size": req.query.size,
     "age": req.query.age,

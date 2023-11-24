@@ -96,13 +96,15 @@ function displayResults(data) {
         photo.src = firstPhoto.medium;
       } else {
         // No 'small' property in the photo, load default image
-        const defaultImageURL = "../images/small-circle-transparent.png";
+        const defaultImageURL = "../images/no-photo.webp";
         photo.src = defaultImageURL;
+        photoDiv.style.backgroundColor = "#0f4c75";
       }
     } else {
       // No photos available, load a default image
-      const defaultImageURL = "../images/small-circle-transparent.png";
+      const defaultImageURL = "../images/no-photo.webp";
       photo.src = defaultImageURL;
+      photoDiv.style.backgroundColor = "#0f4c75";
     }
     // Photo
     photo.alt = animal.name;
@@ -179,6 +181,10 @@ function createDescription(obj, label, separator = ", ") {
   }
 }
 
+// Toggle control (doggle toggle)
+let petType = "dog";
+
+// Dropdown reference array
 const dropdowns = [
   "breed-dropdown",
   "size-dropdown",
@@ -187,12 +193,22 @@ const dropdowns = [
   "color-dropdown",
 ];
 
+// Dog breeds and colors
 const dropdownData = {
   "breed-dropdown": dogBreeds,
   "size-dropdown": animalSizes,
   "age-dropdown": animalAges,
   "gender-dropdown": ["Any", "Male", "Female"],
   "color-dropdown": dogColors,
+};
+
+// Cat breeds and colors
+const catDropdownData = {
+  "breed-dropdown": catBreeds,
+  "size-dropdown": animalSizes,
+  "age-dropdown": animalAges,
+  "gender-dropdown": ["Any", "Male", "Female"],
+  "color-dropdown": catColors,
 };
 
 // Function to populate a dropdown based on its ID and data array
@@ -211,13 +227,24 @@ function populateDropdown(dropdownId, data) {
   });
 }
 
-// Iterate through the dropdownData object and populate each dropdown
-for (const dropdownId in dropdownData) {
-  if (Object.hasOwnProperty.call(dropdownData, dropdownId)) {
-    const data = dropdownData[dropdownId];
-    populateDropdown(dropdownId, data);
+// Function to set the current pet type (dog or cat)
+function setPetType(type) {
+  petType = type;
+  // Adjust dropdowns based on current pet type
+  adjustDropdowns();
+}
+
+// Function to adjust dropdowns based on the current pet type
+function adjustDropdowns() {
+  for (const dropdownId in dropdownData) {
+    if (Object.hasOwnProperty.call(dropdownData, dropdownId)) {
+      const data = petType === "dog" ? dropdownData[dropdownId] : catDropdownData[dropdownId];
+      populateDropdown(dropdownId, data);
+    }
   }
 }
+
+adjustDropdowns();
 
 // Regular expression to match only alphanumeric characters
 function isAlphanumeric(input) {  
@@ -226,8 +253,8 @@ function isAlphanumeric(input) {
 }
 
 function applySelectedCriteria() {
-  //const emptySearchURL = "http://localhost:5000/api/search?";
-  const emptySearchURL = "https://naptap.replit.app/api/search?";
+  //const emptySearchURL = `http://localhost:5000/api/search?type=${petType}&`;
+  const emptySearchURL = `https://naptap.replit.app/api/search?type=${petType}&`;
   let allSearchCriteria = [];
 
   dropdowns.forEach((dropdownId) => {
@@ -377,3 +404,17 @@ scrollToTopButton.addEventListener("click", topFunction);
 window.onscroll = function () {
   scrollFunction();
 };
+
+// Doggle toggle listener
+const toggleCheckbox = document.querySelector('.switch input[type="checkbox"]');
+
+toggleCheckbox.addEventListener('change', function() {
+  // Check if the checkbox is checked
+  if (this.checked) {
+    // Checkbox is checked, set petType to 'cat'
+    setPetType('cat');
+  } else {
+    // Checkbox is unchecked, set petType to 'dog'
+    setPetType('dog');
+  }
+});
