@@ -280,10 +280,11 @@ function isAlphanumeric(input) {
   return alphanumericRegex.test(input);
 }
 
+// Gather input from dropdowns (or ignore empty) to form the API URL
 function applySelectedCriteria() {
 
-  const emptySearchURL = `http://localhost:5000/api/search?type=${petType}&`;
-  //const emptySearchURL = `https://naptap.replit.app/api/search?type=${petType}&`;
+  const emptySearchURL = `http://localhost:5000/api/search?type=${petType}&`; // Main branch (dev)
+  //const emptySearchURL = `https://naptap.replit.app/api/search?type=${petType}&`; // deploy-replit branch
 
   let allSearchCriteria = [];
 
@@ -362,7 +363,7 @@ for (let i = 0; i < collapsibleButtons.length; i++) {
   });
 }
 
-// Invalid input modal popup
+// Invalid input modal popup for Search by Name
 function showModal(message) {
   const modal = document.getElementById('myModal');
   const modalMessage = document.getElementById('modal-message');
