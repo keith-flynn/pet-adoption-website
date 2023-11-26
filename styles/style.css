@@ -623,6 +623,8 @@ footer p {
   .all-animal-text {
     display: flex; /* feelin cute might delete later */
     flex: 1;
+    width: 100%;
+    justify-content: space-around;
   }
 
   .name-text {

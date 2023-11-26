@@ -12693,7 +12693,7 @@
       "Independent",
       "Athletic"
     ],
-    "name": "Blackberry & Bibi (can be adopted separately)",
+    "name": "Blackberry & Bibi",
     "description": "BlackBerry and BiBi are here to capture your heart, and they can be adopted separately or together. These two precious...",
     "organization_animal_id": null,
     "photos": [
@@ -13144,82 +13144,6 @@
     },
     "_links": {
       "self": { "href": "/v2/animals/69486106" },
-      "type": { "href": "/v2/types/cat" },
-      "organization": { "href": "/v2/organizations/mn300" }
-    }
-  },
-  {
-    "id": 69486105,
-    "organization_id": "MN300",
-    "url": "https://www.petfinder.com/cat/marie-69486105/mn/princeton/ruff-start-rescue-mn300/?referrer_id=fe1be475-a16f-4a83-92c7-c6e0023e9c32&utm_source=api&utm_medium=partnership&utm_content=fe1be475-a16f-4a83-92c7-c6e0023e9c32",
-    "type": "Cat",
-    "species": "Cat",
-    "breeds": {
-      "primary": "Domestic Short Hair",
-      "secondary": null,
-      "mixed": true,
-      "unknown": false
-    },
-    "colors": {
-      "primary": "Buff / Tan / Fawn",
-      "secondary": null,
-      "tertiary": null
-    },
-    "age": "Baby",
-    "gender": "Female",
-    "size": "Medium",
-    "coat": null,
-    "attributes": {
-      "spayed_neutered": true,
-      "house_trained": true,
-      "declawed": false,
-      "special_needs": false,
-      "shots_current": false
-    },
-    "environment": { "children": null, "dogs": null, "cats": null },
-    "tags": [],
-    "name": "Marie",
-    "description": "You can fill out an adoption application online on our official website.\n\n*This animal is located at our same-day adoption...",
-    "organization_animal_id": "19861718",
-    "photos": [
-      {
-        "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69486105/1/?bust=1698608689&width=100",
-        "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69486105/1/?bust=1698608689&width=300",
-        "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69486105/1/?bust=1698608689&width=600",
-        "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69486105/1/?bust=1698608689"
-      },
-      {
-        "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69486105/2/?bust=1698608690&width=100",
-        "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69486105/2/?bust=1698608690&width=300",
-        "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69486105/2/?bust=1698608690&width=600",
-        "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69486105/2/?bust=1698608690"
-      }
-    ],
-    "primary_photo_cropped": {
-      "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69486105/1/?bust=1698608689&width=300",
-      "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69486105/1/?bust=1698608689&width=450",
-      "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69486105/1/?bust=1698608689&width=600",
-      "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69486105/1/?bust=1698608689"
-    },
-    "videos": [],
-    "status": "adoptable",
-    "status_changed_at": "2023-10-29T19:34:44+0000",
-    "published_at": "2023-10-29T19:34:42+0000",
-    "distance": null,
-    "contact": {
-      "email": "info@ruffstartrescue.org",
-      "phone": "(763) 355-3981",
-      "address": {
-        "address1": "P.O. Box 129",
-        "address2": null,
-        "city": "Princeton",
-        "state": "MN",
-        "postcode": "55371",
-        "country": "US"
-      }
-    },
-    "_links": {
-      "self": { "href": "/v2/animals/69486105" },
       "type": { "href": "/v2/types/cat" },
       "organization": { "href": "/v2/organizations/mn300" }
     }
@@ -14367,7 +14291,7 @@
       "Athletic",
       "Loves Kisses"
     ],
-    "name": "JUNO'S KITTENS",
+    "name": "Juno's Kittens",
     "description": "Need an adorable little god and/or goddess in your life? Here&#039;s the answer! Young mama, Juno, had a litter of...",
     "organization_animal_id": null,
     "photos": [
@@ -15912,7 +15836,7 @@
     },
     "environment": { "children": null, "dogs": true, "cats": true },
     "tags": [],
-    "name": "Ally (FCID# 09/19/2023 - 42) DC",
+    "name": "Ally",
     "description": "Ally is a cuddly and playful young gray tabby!! She is very affectionate and is a huge snuggle bug!! Ally...",
     "organization_animal_id": "19934151-FCID#C 09-19-202",
     "photos": [
@@ -16402,7 +16326,7 @@
     },
     "environment": { "children": null, "dogs": null, "cats": null },
     "tags": [],
-    "name": "23-10-3365 Skellington",
+    "name": "Skellington",
     "description": "Primary Color: Black Secondary Color: White Animal has been Neutered",
     "organization_animal_id": "37510",
     "photos": [
@@ -20605,72 +20529,6 @@
     }
   },
   {
-    "id": 69485813,
-    "organization_id": "IL178",
-    "url": "https://www.petfinder.com/cat/emyrs-69485813/il/chicago/the-anti-cruelty-society-il178/?referrer_id=fe1be475-a16f-4a83-92c7-c6e0023e9c32&utm_source=api&utm_medium=partnership&utm_content=fe1be475-a16f-4a83-92c7-c6e0023e9c32",
-    "type": "Cat",
-    "species": "Cat",
-    "breeds": {
-      "primary": "Domestic Short Hair",
-      "secondary": null,
-      "mixed": false,
-      "unknown": false
-    },
-    "colors": { "primary": null, "secondary": null, "tertiary": null },
-    "age": "Adult",
-    "gender": "Male",
-    "size": "Small",
-    "coat": null,
-    "attributes": {
-      "spayed_neutered": true,
-      "house_trained": false,
-      "declawed": false,
-      "special_needs": false,
-      "shots_current": false
-    },
-    "environment": { "children": null, "dogs": null, "cats": null },
-    "tags": [],
-    "name": "Emyrs",
-    "description": "Meet Emyrs! Emyrs recently made it into our adoption program and staff is still getting to know him. Check back...",
-    "organization_animal_id": "54644051",
-    "photos": [
-      {
-        "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69485813/1/?bust=1698607340&width=100",
-        "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69485813/1/?bust=1698607340&width=300",
-        "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69485813/1/?bust=1698607340&width=600",
-        "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69485813/1/?bust=1698607340"
-      }
-    ],
-    "primary_photo_cropped": {
-      "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69485813/1/?bust=1698607340&width=300",
-      "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69485813/1/?bust=1698607340&width=450",
-      "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69485813/1/?bust=1698607340&width=600",
-      "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/69485813/1/?bust=1698607340"
-    },
-    "videos": [],
-    "status": "adoptable",
-    "status_changed_at": "2023-10-29T19:11:12+0000",
-    "published_at": "2023-10-29T19:11:10+0000",
-    "distance": null,
-    "contact": {
-      "email": "adoption@anticruelty.org",
-      "phone": "(312) 644-8338",
-      "address": {
-        "address1": "510 N. LaSalle ",
-        "address2": null,
-        "city": "Chicago",
-        "state": "IL",
-        "postcode": "60654",
-        "country": "US"
-      }
-    },
-    "_links": {
-      "self": { "href": "/v2/animals/69485813" },
-      "type": { "href": "/v2/types/cat" },
-      "organization": { "href": "/v2/organizations/il178" }
-    }
-  },
-  {
     "id": 69485810,
     "organization_id": "IL178",
     "url": "https://www.petfinder.com/cat/norse-69485810/il/chicago/the-anti-cruelty-society-il178/?referrer_id=fe1be475-a16f-4a83-92c7-c6e0023e9c32&utm_source=api&utm_medium=partnership&utm_content=fe1be475-a16f-4a83-92c7-c6e0023e9c32",
@@ -22096,7 +21954,7 @@
     },
     "environment": { "children": null, "dogs": null, "cats": null },
     "tags": [],
-    "name": "Kia-older Siamese in foster care",
+    "name": "Kia",
     "description": "Kia is a beautiful Siamese cat whose owner went into a convalescent hospital. She is very sweet and loves attention....",
     "organization_animal_id": "19934301",
     "photos": [
@@ -22752,7 +22610,7 @@
     },
     "environment": { "children": null, "dogs": null, "cats": null },
     "tags": [],
-    "name": "Marie*",
+    "name": "Marie",
     "description": null,
     "organization_animal_id": null,
     "photos": [
@@ -22994,7 +22852,7 @@
     },
     "environment": { "children": null, "dogs": null, "cats": null },
     "tags": [],
-    "name": "Rolando*",
+    "name": "Rolando",
     "description": null,
     "organization_animal_id": null,
     "photos": [
@@ -23074,7 +22932,7 @@
       "Playful",
       "Smart"
     ],
-    "name": "FAB 4: BIGGIE & DISCO",
+    "name": "BIGGIE & DISCO",
     "description": "Sooo cute! We call them the Fab 4! The girls are Naz and Sockie, and the boys are Biggie and...",
     "organization_animal_id": null,
     "photos": [
@@ -23456,7 +23314,7 @@
     },
     "environment": { "children": null, "dogs": null, "cats": false },
     "tags": [],
-    "name": "Mitchell (FCID# 02/22/2023 - 18)",
+    "name": "Mitchell",
     "description": "Very affectionate! Please meet Mitchell! From his foster: He loves to sit in the window and watch the outside world....",
     "organization_animal_id": "19934173-FCID# 02-22-2023",
     "photos": [
@@ -23620,7 +23478,7 @@
       "Playful",
       "Smart"
     ],
-    "name": "FAB 4: NAZ & SOCKIE",
+    "name": "NAZ & SOCKIE",
     "description": "Sooo cute! We call them the Fab 4! The girls are Naz and Sockie, and the boys are Biggie and...",
     "organization_animal_id": null,
     "photos": [
@@ -24236,7 +24094,7 @@
       "Responsible",
       "Independent"
     ],
-    "name": "illania - playful & cunning leader",
+    "name": "illania",
     "description": "Meet Illania, the spirited ginger kitten ready to bring joy to your home! Illania is a bundle of energy, always...",
     "organization_animal_id": null,
     "photos": [
@@ -24695,7 +24553,7 @@
     },
     "environment": { "children": null, "dogs": null, "cats": true },
     "tags": [],
-    "name": "Raido 0377",
+    "name": "Raido",
     "description": "DOB 10/1/22 I am a huge lover boy and I am not shy to tell you all about it. I...",
     "organization_animal_id": "ps_25557913",
     "photos": [
