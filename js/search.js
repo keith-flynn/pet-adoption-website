@@ -12,7 +12,7 @@ const apiURL = "http://localhost:5000/api/";
 let searchShouldProceed = true;
 
 // Fetch request
-async function fetchData(url = apiURL) {
+async function fetchData(url = apiURL) { // empty API URL if none is provided
   const response = await fetch(url, { method: "GET" });
   if (response.status === 200) {
     const data = await response.json();
@@ -31,16 +31,10 @@ document.getElementById("clearButton").addEventListener("click", refreshPage);
 // console log returned JSON object and call displayResults
 function returnResults(data) {
   if (data) {
-    // DEBUG
-    console.log("API Response:", data);
-
     const mainStartingContent = document.getElementById(
       "main-starting-content"
     );
     const resultsContainer = document.getElementById("results-container");
-
-    // DEBUG
-    console.log(data.data.length);
 
     // Change contents of main if any results are returned
     if (data.data.length > 0) {
@@ -66,9 +60,6 @@ function returnResults(data) {
     const resultAmount = document.createElement("h3");
     resultAmount.textContent = `Your search returned ${data.data.length} results...`;
     numberReturned.appendChild(resultAmount);
-
-    // DEBUG
-    console.log(`Your search returned ${data.data.length} results...`);
   }
 }
 
@@ -136,7 +127,7 @@ function displayResults(data) {
     animalStatsDiv.appendChild(gender);
     // Breeds
     const breed = document.createElement("p");
-    if (animal.breeds.mixed) {
+    if (animal.breeds.mixed) { // Breed or Breeds used if multiple
       breed.textContent = createDescription(animal.breeds, "Breeds");
     } else {
       breed.textContent = createDescription(animal.breeds, "Breed");
@@ -159,7 +150,7 @@ function displayResults(data) {
     // Create and append the close button
     const closeButtonDiv = document.createElement("div");
     closeButtonDiv.classList.add("close-button");
-    closeButtonDiv.innerHTML = '<i class="fa-regular fa-circle-xmark"></i>'; // This is the 'X' symbol
+    closeButtonDiv.innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
     closeButtonDiv.addEventListener("click", () => {
       returnAnimalDiv.remove(); // Remove the animal container on close button click
     });
@@ -308,7 +299,7 @@ function applySelectedCriteria() {
       searchShouldProceed = true;
       allSearchCriteria.push(`name=${searchField}`);
     } else {
-      // Display a modal or some other user-friendly notification for invalid input
+      // Display a friendly modal for invalid input
       showModal("Invalid input. Please enter a valid search query.");
       searchShouldProceed = false;
     }
@@ -385,7 +376,6 @@ function showModal(message) {
   };
 }
 
-// New home for event listeners
 // Search button event listeners
 const searchButton = document.getElementById("searchButton");
 // For clicks

@@ -21,7 +21,6 @@ router.get('/', function (req, res, next) {
       "status": 200,
       "statusText": "OK",
       "message": "All pets retrieved.",
-      "isKeithCool": true,
       "data": data
     });
   }, function(err) {
