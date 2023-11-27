@@ -27,7 +27,7 @@ If you do not already have Node installed on your system, it can be downloaded f
 
 ## Features
 
-If you are grading this project, Check Here!
+:warning: If you are grading this project, [Check Here!](https://github.com/keith-flynn/pet-adoption-website/tree/mongo/project-review) :warning:
 
 ### Front End
 
@@ -42,7 +42,7 @@ If you are grading this project, Check Here!
 ### Back End
  - Robust error handling and logging system
  - Serve data based on ID, type (dog/cat), breed, size, age, gender, color, and/or name
- - Modular files can be swapped to serve MongoDB Atlas Cloud
+ - Modular files can be [swapped](https://github.com/keith-flynn/pet-adoption-website/tree/mongo) to serve MongoDB Atlas Cloud
  - Wrap responses in industry standard JSON envelope format
 
 ## Resources

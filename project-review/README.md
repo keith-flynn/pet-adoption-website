@@ -48,6 +48,4 @@ I had a lot of fun creating this, and learned more than I thought I possibly cou
 2. Interact with a database to store and retrieve information (e.g. MySQL, MongoDB, etc).
     - A separate branch has this functionality
     - The free tier of MongoDB Atlas has low priority and high latency, so this was ultimately pivoted away from in the final project.
-    - controller
-    - middleware
-![feature_2-1](./assets/feature_2-1.png)
+    - The [mongo](https://github.com/keith-flynn/pet-adoption-website/tree/mongo) branch hosts these files as index.js and repos/petRepo.js
