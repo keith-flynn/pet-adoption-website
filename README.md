@@ -27,6 +27,8 @@ If you do not already have Node installed on your system, it can be downloaded f
 
 ## Features
 
+If you are grading this project, Check Here!
+
 ### Front End
 
  - Search filter dropdowns are populated dynamically at page load and with the switch of the dog/cat toggle (doggle)
@@ -39,9 +41,9 @@ If you do not already have Node installed on your system, it can be downloaded f
 
 ### Back End
  - Robust error handling and logging system
- - Wrap responses in industry standard JSON envelope format
  - Serve data based on ID, type (dog/cat), breed, size, age, gender, color, and/or name
  - Modular files can be swapped to serve MongoDB Atlas Cloud
+ - Wrap responses in industry standard JSON envelope format
 
 ## Resources
 
