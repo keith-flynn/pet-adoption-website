@@ -43,7 +43,7 @@ I had a lot of fun creating this, and learned more than I thought I possibly cou
     - An example of a GET all router function is on line 18
     - The middleware is located in repos/petRepo.js
     - An example of the same get all function is on line 7
-    - The [deploy-replit](https://github.com/keith-flynn/pet-adoption-website/tree/deploy-replit) branch of this repository serves the front end through [GitHub Pages](https://keith-flynn.github.io/pet-adoption-website/), and the Express.js router is hosted by [Replit.com](https://replit.com/)
+    - The [deploy-replit](https://github.com/keith-flynn/pet-adoption-website/tree/deploy-replit) branch of this repository serves the front end through [GitHub Pages](https://keith-flynn.github.io/pet-adoption-website/), and the Express.js router is hosted by [Replit.com](https://replit.com/) for your convenience 
 ![feature_3-1.1](./assets/feature_3-1.1.png)
 ![feature_3-1.2](./assets/feature_3-1.2.png)    
 2. Interact with a database to store and retrieve information (e.g. MySQL, MongoDB, etc).
