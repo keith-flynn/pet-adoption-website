@@ -41,13 +41,11 @@ I had a lot of fun creating this, and learned more than I thought I possibly cou
 1. Create a node.js web server using a modern framework such as Express.js or Fastify.  Serve at least one route that your app uses (must serve more than just the index.html file).
     - The controller is index.js
     - An example of a GET all router function is on line 18
-
-![feature_3-1.1](./assets/feature_3-1.1.png)
-
     - The middleware is located in repos/petRepo.js
     - An example of the same get all function is on line 7
-![feature_3-1.2](./assets/feature_3-1.2.png)
     - The [deploy-replit](https://github.com/keith-flynn/pet-adoption-website/tree/deploy-replit) branch of this repository serves the front end through [GitHub Pages](https://keith-flynn.github.io/pet-adoption-website/), and the Express.js router is hosted by [Replit.com](https://replit.com/)
+![feature_3-1.1](./assets/feature_3-1.1.png)
+![feature_3-1.2](./assets/feature_3-1.2.png)    
 2. Interact with a database to store and retrieve information (e.g. MySQL, MongoDB, etc).
     - A separate branch has this functionality
     - The free tier of MongoDB Atlas has low priority and high latency, so this was ultimately pivoted away from in the final project.
