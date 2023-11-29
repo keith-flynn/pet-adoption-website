@@ -26,6 +26,7 @@ I had a lot of fun creating this, and learned more than I thought I possibly cou
     - Function createDescription takes API JSON data and creates a list to display on the page
     - Input generates up to three items separated by a comma by default, and returns the items prefixed with which attribute they represent
     - Function is in js/search.js on line 171
+    
 ![feature_1-4](./assets/feature_1-4.png)
 
 ### Capstone Features 2
@@ -40,7 +41,9 @@ I had a lot of fun creating this, and learned more than I thought I possibly cou
 1. Create a node.js web server using a modern framework such as Express.js or Fastify.  Serve at least one route that your app uses (must serve more than just the index.html file).
     - The controller is index.js
     - An example of a GET all router function is on line 18
+
 ![feature_3-1.1](./assets/feature_3-1.1.png)
+
     - The middleware is located in repos/petRepo.js
     - An example of the same get all function is on line 7
 ![feature_3-1.2](./assets/feature_3-1.2.png)
