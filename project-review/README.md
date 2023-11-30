@@ -45,7 +45,3 @@ I had a lot of fun creating this, and learned more than I thought I possibly cou
     - The [deploy-replit](https://github.com/keith-flynn/pet-adoption-website/tree/deploy-replit) branch of this repository serves the front end through [GitHub Pages](https://keith-flynn.github.io/pet-adoption-website/), and the Express.js router is hosted by [Replit.com](https://replit.com/) for your convenience 
     - ![feature_3-1.1](./assets/feature_3-1.1.png)
     - ![feature_3-1.2](./assets/feature_3-1.2.png)    
-2. Interact with a database to store and retrieve information (e.g. MySQL, MongoDB, etc).
-    - A separate branch has this functionality
-    - The free tier of MongoDB Atlas has low priority and high latency, so this was ultimately pivoted away from in the final project.
-    - The [mongo](https://github.com/keith-flynn/pet-adoption-website/tree/mongo) branch hosts these files as index.js and repos/petRepo.js
