@@ -27,7 +27,7 @@ If you do not already have Node installed on your system, it can be downloaded f
 
 ## Features
 
-:warning: If you are grading this project, [Check Here!](https://github.com/keith-flynn/pet-adoption-website/tree/mongo/project-review) :warning:
+:warning: If you are grading this project, [Check Here!](https://github.com/keith-flynn/pet-adoption-website/tree/main/project-review) :warning:
 
 ### Front End
 
