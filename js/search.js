@@ -274,8 +274,11 @@ function isAlphanumeric(input) {
 // Gather input from dropdowns (or ignore empty) to form the API URL
 function applySelectedCriteria() {
 
-  const emptySearchURL = `http://localhost:5000/api/search?type=${petType}&`; // Main branch (dev)
-  //const emptySearchURL = `https://naptap.replit.app/api/search?type=${petType}&`; // deploy-replit branch
+
+  //const emptySearchURL = `http://localhost:5000/api/search?type=${petType}&`; // Main branch (dev)
+  const emptySearchURL = `https://naptap.replit.app/api/search?type=${petType}&`; // deploy-replit branch
+
+
 
   let allSearchCriteria = [];
 
@@ -439,3 +442,5 @@ toggleCheckbox.addEventListener('change', function() {
     setPetType('dog');
   }
 });
+
+// test
