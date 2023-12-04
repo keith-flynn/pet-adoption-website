@@ -275,8 +275,8 @@ function isAlphanumeric(input) {
 function applySelectedCriteria() {
 
 
-  //const emptySearchURL = `http://localhost:5000/api/search?type=${petType}&`; // Main branch (dev)
-  const emptySearchURL = `https://naptap.replit.app/api/search?type=${petType}&`; // deploy-replit branch
+  const emptySearchURL = `http://localhost:5000/api/search?type=${petType}&`; // Main branch (dev)
+  //const emptySearchURL = `https://naptap.replit.app/api/search?type=${petType}&`; // deploy-replit branch
 
 
 
@@ -442,8 +442,3 @@ toggleCheckbox.addEventListener('change', function() {
     setPetType('dog');
   }
 });
-
-// test
-function newTestForNoReason() {
-  console.log("This is to make the code appear different to the build server.")
-}

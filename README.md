@@ -2,7 +2,7 @@
 
 Now deployed on Github Pages!
 
-[Need A Puppy Take A Puppy](https://keith-flynn.github.io/pet-adoption-website/)
+[Need A Puppy Take A Puppy](https://keith-flynn.github.io/pet-adoption-website-frontend/)
 
 ## About My Pet Adoption Website
 
