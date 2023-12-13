@@ -340,12 +340,12 @@ select {
 
 .name-text {
   font-weight: 600;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   padding: 3px;
 }
 
 .animal-stats {
-  font-size: 0.9em;
+  font-size: 0.9rem;
   padding: 3px;
 }
 
@@ -628,11 +628,11 @@ footer p {
   }
 
   .name-text {
-    font-size: 1.3em;
+    font-size: 1.3rem;
   }
 
   .animal-stats {
-    font-size: 1em;
+    font-size: 1rem;
     padding: 3px;
   }
 
